@@ -1,0 +1,62 @@
+.nav { grid-area: nav; }
+.main { grid-area: main; }
+
+
+body{
+    font-family: 'Nerko One', cursive;
+}
+  .grid {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+                        'nav'
+                        'main';
+  }
+
+
+  #map { height: 500%; }
+
+
+.nav{
+    padding: 10px;
+    display: flex;
+    background-color: #2B8B34;
+    overflow: none;
+    justify-content: space-between;
+    align-items:center ;
+    
+}
+
+ #myLinks {
+    display: none;
+
+  }
+  .navLinks{
+      display: flex;
+
+  }
+#myLinks a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+#logo{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+#logo img{
+    width: 130px;
+}
+
+#myLinks a:hover {
+    background-color: #ddd;
+    color: black;
+}
+  
+  .active {
+    background-color: #4CAF50;
+    color: white;
+  }
