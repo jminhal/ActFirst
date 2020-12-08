@@ -1,62 +1,109 @@
-.nav { grid-area: nav; }
-.main { grid-area: main; }
-
-
+*{font-family: 'Nerko One', cursive;}
 body{
-    font-family: 'Nerko One', cursive;
-}
-  .grid {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
-    grid-template-areas:
-                        'nav'
-                        'main';
-  }
-
-
-  #map { height: 500%; }
-
-
-.nav{
-    padding: 10px;
-    display: flex;
-    background-color: #2B8B34;
-    overflow: none;
-    justify-content: space-between;
-    align-items:center ;
-    
-}
-
- #myLinks {
-    display: none;
-
-  }
-  .navLinks{
-      display: flex;
-
-  }
-#myLinks a {
     color: white;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
+}
+header{
+  background-color: #F57C47;
+  display: flex;
+  align-items: center;
+}
+#actfirstLogo {
+  width: 100px;
+  padding: 5px;
+}
+.boxNavAvatar{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.boxNav{
+  margin-left: 2%;
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+}
+.divLogoAvatar{
+  display: flex;
+  align-items: center;
+}
+
+#user {
+  width: 100px;
+  padding: 5px;
+}
+
+  .searchBox{
+    display: flex;
+    align-items: center;
+    background-color: #FBF1E5;
+    width: 100%;
+    height: 100px;
   }
-#logo{
+ 
+  .divsearchBox{
+    width: 100%;
     display: flex;
     justify-content: center;
-    width: 100%;
-}
-#logo img{
-    width: 130px;
-}
-
-#myLinks a:hover {
-    background-color: #ddd;
-    color: black;
-}
-  
-  .active {
-    background-color: #4CAF50;
-    color: white;
   }
+
+
+  .boxLocal{
+    width: 22%;
+    margin-right: 2%;
+    border: 1px solid grey;
+    background-color: white;
+    display: flex;
+    align-items: center;
+  }
+  .local{
+    margin-right: 10px;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+
+  }
+  #localIcon{
+    width: 40px;
+    height: 30px;
+  }
+
+
+  .boxCalendario{
+    width: 14%;
+    margin-right: 2%;
+    border: 1px solid grey;
+    background-color: white;
+    display: flex;
+    align-items: center;
+  }
+  .calendario{
+    margin-right: 10px;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+   
+
+  }
+  #calendarioIcon{
+    width: 40px;
+    height: 30px;
+  }  
+
+  .botaoPesquisar{
+    color: white;
+    background-color: #2B8B34;
+    padding: 10px 24px;
+    border-radius: 8px;
+    border: 2px solid #2B8B34;
+    cursor: pointer;
+  }
+
+
+
+
+
+  #map { height: 735px; }
