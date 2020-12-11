@@ -1,0 +1,41 @@
+body{
+    background-color: #FBF1E5;
+}
+main{
+color: black;
+margin-top: 100px;
+display: flex;
+justify-content: center;
+}
+
+
+
+
+.maisInfo{
+    color: white;
+    background-color: #2B8B34;
+    padding: 10px 24px;
+    border-radius: 8px;
+    border: 2px solid #2B8B34;
+    cursor: pointer;
+  }
+  .abandonar{
+    color: white;
+    background-color: #F57C47;
+    padding: 10px 24px;
+    border-radius: 8px;
+    border: 2px solid #F57C47;
+    cursor: pointer;
+  }
+
+  table th{
+    padding-right: 100px; 
+  }
+  .retangulo{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #FAF9FF;
+    height: 500px;
+    width: 1500px;
+  }
