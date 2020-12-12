@@ -11,10 +11,10 @@ module.exports.getAllLocalizacoes = async function() {
     } 
 }
 
-module.exports.getlocalizacao = async function(user_id) {
+module.exports.getlocalizacao = async function(localizacao_id) {
     try {
-        let sql = "SELECT * FROM localizacao WHERE user_id = ?";
-        let localizacoes = await pool.query(sql, [ user_id ]);
+        let sql = "SELECT * FROM localizacao WHERE localizacao_id = ?";
+        let localizacoes = await pool.query(sql, [ localizacao_id ]);
         return {status: 200, data: localizacoes[0]};
     } catch (err) {
         console.log(err);
