@@ -15,14 +15,16 @@ insert into tipoAcao (nome) values('Recolha de alimentos');
 insert into tipoAcao (nome) values('Ajuda na organização');
 insert into tipoAcao (nome) values('Limpar Jardim');
 
+insert into localizacao(nome) values ('Faro');
+insert into localizacao(nome) values ('Lisboa');
+insert into localizacao(nome) values ('Porto');
  
- 
-insert into acao(organizacao_id,local,tipoAcao,extraInfo,email,diaAcaoInicio,diaAcaoFim,pessoasInscritas) 
-			values(1,'Continente Gomes Freire',1,'Levar roupa adquada','AbrigoSeguro@IADE.pt','2020-12-12','2020-12-30',0);
-insert into acao(organizacao_id,local,tipoAcao,extraInfo,email,diaAcaoInicio,diaAcaoFim,pessoasInscritas) 
-			values(12,'Hospital Dona Estefânia',2,'Levar roupa adquada','CruzVermelha@IADE.pt','2020-12-15','2020-12-30',0);
-insert into acao(organizacao_id,local,tipoAcao,extraInfo,email,diaAcaoInicio,diaAcaoFim,pessoasInscritas) 
-			values(11,'Jardim Botânico de Lisboa',3,'Levar roupa adquada','FlorinhasVouga@IADE.pt','2020-12-30','2021-01-15',0);
+insert into acao(organizacao_id,local,tipoAcao,extraInfo,email,diaAcaoInicio,diaAcaoFim,pessoasInscritas,localizacao) 
+			values(1,'38.7237927@-9.1421934',1,'Levar roupa adquada','AbrigoSeguro@IADE.pt','2020-12-12','2020-12-30',0,2);
+insert into acao(organizacao_id,local,tipoAcao,extraInfo,email,diaAcaoInicio,diaAcaoFim,pessoasInscritas,localizacao) 
+			values(12,'38.728244@-9.139271',2,'Levar roupa adquada','CruzVermelha@IADE.pt','2020-12-15','2020-12-30',0,2);
+insert into acao(organizacao_id,local,tipoAcao,extraInfo,email,diaAcaoInicio,diaAcaoFim,pessoasInscritas,localizacao) 
+			values(11,'38.7183333@-9.1507342',3,'Levar roupa adquada','FlorinhasVouga@IADE.pt','2020-12-30','2021-01-15',0,2);
  
  
   
@@ -44,6 +46,7 @@ insert into acaoParticipacao (acao_id,user_id) values(1,8);
 
 insert into futuraAcao (acao_id,user_id) values(3,7);
 insert into futuraAcao (acao_id,user_id) values(3,8);
+
 
 
 

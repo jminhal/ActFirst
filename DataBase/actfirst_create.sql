@@ -7,7 +7,10 @@ Create table utilizador(user_id int not null auto_increment,
 						
 create table tipoAcao(tipoAcao_id int not null auto_increment, 
 					  nome varchar(60) not null,
-					  primary key (tipoAcao_id));	
+					  primary key (tipoAcao_id));
+create table localizacao(localizacao_id int not null auto_increment, 
+					  nome varchar(60) not null,
+					  primary key (localizacao_id));					  
 						
 create table acao (acao_id int not null auto_increment, 
 					organizacao_id int not null, 
@@ -18,8 +21,10 @@ create table acao (acao_id int not null auto_increment,
 					diaAcaoInicio date not null,
 					diaAcaoFim date not null,					
 					pessoasInscritas int default 0,
+					localizacao int not null,
                     primary key (acao_id),
 					foreign key (tipoAcao) references tipoAcao(tipoAcao_id),
+					foreign key (localizacao) references localizacao(localizacao_id),
 					foreign key (organizacao_id) references utilizador(user_id));					
 					
 create table acaoParticipada (acaoParticipada_id int not null auto_increment,
@@ -40,6 +45,4 @@ create table futuraAcao (futuraAcao_id int not null auto_increment,
 						user_id int not null,
                         primary key (futuraAcao_id),
                         foreign key (acao_id) references acao(acao_id),
-                        foreign key (user_id) references utilizador(user_id));	
-			
-						
+                        foreign key (user_id) references utilizador(user_id));
