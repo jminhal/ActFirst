@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <head>
   <title></title>
+  
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!--Css & JavaScript do mapa-->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -35,13 +38,13 @@
         <div class="divsearchBox">
           <div class="boxLocal">
             <img id="localIcon" src="Icons/search.png" alt="Search Icon">
-            <input type="text" class="local" placeholder ="Escreve um concelho, bairro ou zona">
+            <select class="local" id="localizacao"></select>
           </div>
           <div class="boxCalendario">
-            <input type="date" class="calendario"  placeholder ="Seleciona um dia">
+            <input type="date" class="calendario" id="date"  placeholder ="Seleciona um dia">
             <img id="calendarioIcon" src="Icons/calendario.png" alt="calendario Icon">
           </div>
-          <button type="button" class="botaoPesquisar" onclick="myFunction()" >Procurar</button> 
+          <button type="button" class="botaoPesquisar" onclick="procurarAcoes()" >Procurar</button> 
         </div>
         
       </section>
