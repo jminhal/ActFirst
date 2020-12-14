@@ -1,8 +1,92 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.index-body {
+  font: 20px "Lucida Grande", Arial, Helvetica, sans-serif;
+  display: grid;
+  grid-template-columns: auto;
+  text-align: center;
+  color: orange;
 }
 
-a {
-  color: #00B7FF;
+.header, footer {
+  grid-column: 1/2;
+  display: flex;
+  color: orange;
+  background: tomato;
+  padding: 10px;
+  text-align: left;
+}
+
+nav {
+  display: block;
+  flex-direction: row;
+  background-color: orange;
+  padding: 40px;
+  margin: 0px 0px 0px 0px;
+  text-align: center
+}
+
+nav a:link{color:white;}
+nav a:visited{color:white;}
+nav a {padding-bottom: 10px;}
+
+
+#avatar {
+  width: 75px;
+}
+
+.title {
+  margin: auto 0 auto 25px;
+}
+
+.title a {
+  margin-left:25px;
+  text-decoration: none;
+  color:white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
+}
+
+.grid-item {
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.testemunhos {
+  background-color: #fbf1e5;
+}
+
+.metade {
+  width: 50%;
+}
+
+#help, #helping {
+  height: 500px;
+}
+
+#voluntariado {
+  border-radius: 50px;
+}
+
+.pessoa {
+  width:250px;
+  border-radius: 50px;
+}
+
+.apresentacao {
+  margin: 50px 0;
+}
+
+.banco {
+  width: 500px;
+  border-radius: 50px;
 }
