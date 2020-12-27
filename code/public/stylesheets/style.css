@@ -3,13 +3,13 @@
   display: grid;
   grid-template-columns: auto;
   text-align: center;
-  color: orange;
+  color:#2B8B34;
 }
 
-.header, footer {
+.header {
   grid-column: 1/2;
   display: flex;
-  color: orange;
+  color: #F57C47;
   background: tomato;
   padding: 10px;
   text-align: left;
@@ -31,6 +31,7 @@ nav a {padding-bottom: 10px;}
 
 #avatar {
   width: 75px;
+  height: 75px;
 }
 
 .title {
@@ -70,7 +71,7 @@ nav a {padding-bottom: 10px;}
 }
 
 #help, #helping {
-  height: 500px;
+  height: 400px;
 }
 
 #voluntariado {
@@ -78,7 +79,7 @@ nav a {padding-bottom: 10px;}
 }
 
 .pessoa {
-  width:250px;
+  width:300px;
   border-radius: 50px;
 }
 
@@ -87,6 +88,67 @@ nav a {padding-bottom: 10px;}
 }
 
 .banco {
-  width: 500px;
+  width: 600px;
   border-radius: 50px;
+}
+
+#certo, #gratis {
+  height: 50px;
+}
+.acess {
+  margin: 50px 0;
+}
+
+.acessgrid-item {
+  padding: 20px;
+  font-size: 15px;
+  text-align: center;
+  color: black;
+}
+
+#face, #twit, #you, #insta, #git {
+  height: 50px;
+  border-radius: 50px;
+}
+
+.redes {
+  width: 100%;
+  height: 1px;
+}
+
+.index-footer {
+  margin: 10px 0;
+  padding: 20px;
+  text-align: center;
+  color: black;
+  font: 20px "Lucida Grande", Arial, Helvetica, sans-serif;
+  bottom: 0;
+}
+
+#jact {
+  height: 50px;
+  margin: 10px;
+}
+
+#linha {
+  height: 1px;
+  width: 100%;
+  background: black;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex-shrink: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
 }

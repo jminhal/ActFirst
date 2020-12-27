@@ -1,0 +1,51 @@
+.titlel{
+    font-size: 50px;
+    padding: 20px;
+    text-align: left;
+}
+
+.header {
+    height: 45%;
+  }
+
+.signup {
+    border-style: solid;
+    border-radius: 20px;
+    font-size: 25px;
+    text-align: center;
+    color: white;
+    margin: 100px 300px;
+    background-color: green;
+}
+
+.nome {
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+    font-size: 25px;
+    text-align: center;
+    color: black; 
+    margin: 100px 470px;
+}
+
+.grid-container {
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+.content {
+    flex: 1 0 auto;
+}
+
+.footer {
+    flex-shrink: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
