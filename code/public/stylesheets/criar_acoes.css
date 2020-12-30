@@ -1,0 +1,140 @@
+*{font-family: 'Nerko One', cursive;}
+body{
+    color: white;
+    background-color:  #FAF9FF;
+}
+header{
+  background-color: #F57C47;
+  display: flex;
+  align-items: center;
+}
+#actfirstLogo {
+  width: 100px;
+  padding: 5px;
+}
+.boxNavAvatar{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.boxNav{
+  margin-left: 2%;
+  display: flex;
+  justify-content: space-between;
+  width: 15%;
+}
+.boxNav a{
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 8px;
+}
+.divLogoAvatar{
+  display: flex;
+  align-items: center;
+}
+
+#user {
+  width: 100px;
+  padding: 5px;
+}
+
+
+#titulo{
+    margin-top: 100px;
+    margin-left: 100px;
+}
+.searchBox{
+    display: flex;
+    align-items: center;
+    background-color: #FBF1E5;
+    width: 100%;
+    height: 100px;
+  }
+
+.divsearchBox{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+
+  .boxLocal{
+    width: 10%;
+    margin-right: 2%;
+    border: 1px solid grey;
+    background-color: white;
+    display: flex;
+    align-items: center;
+  }
+  .local{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+
+  }
+
+
+
+
+  .boxCalendario{
+    margin-right: 2%;
+    border: 1px solid grey;
+    background-color: white;
+    display: flex;
+    align-items: center;
+  }
+  .calendario{
+    margin-right: 10px;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+  }
+  .calendarioIcon{
+    width: 40px;
+    height: 30px;
+  }  
+
+
+  #calendarios{
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+  }
+
+  #horas{
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+  }
+
+  .boxHoras{
+      margin-right: 2%;
+      display: flex;
+      align-items: center;
+  }
+
+
+  .colorPreto{
+      color: black;
+  }
+
+  .box{
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      width: 15%;
+  }
+  .botaoCriarAcao{
+    color: white;
+    background-color: #2B8B34;
+    padding: 10px 24px;
+    border-radius: 8px;
+    border: 2px solid #2B8B34;
+    cursor: pointer;
+    
+  }

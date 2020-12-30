@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+  <title></title>
+   <!-- JQuery -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="/stylesheets/criar_acoes.css">
+  <script src="javascripts/criar_acoes.js"></script>
+</head>
+<html>
+<body>
+  <header class= "header">
+    <img id="actfirstLogo" src="icons/ActFirst.png" alt="ActFirst Logo">
+      <section class="boxNavAvatar">
+        <nav class="boxNav">
+          <a href="/procurar_acao.html">Procurar ações</a> 
+          <a style="background-color:  #B78414;" href="/criar_acoes.html">Criar Ações</a>
+        </nav>
+        <div class="divLogoAvatar">
+          <h1>test</h1>
+          <img id="user" src="icons/user.png" alt="Avatar">
+        </div>
+      </section>
+    </header>
+    
+    <main class="colorPreto">
+      <h1 id="titulo">Informações Ações:</h1>
+
+        <div id="calendarios">
+          <div class="box">
+            <label>Dia Inicio: </label>
+            <div class="boxCalendario">
+              <input type="date" class="calendario" placeholder ="Seleciona um dia">
+              <img class="calendarioIcon" src="icons/calendario.png" alt="calendario Icon">
+            </div>
+          </div><!-- calendariosInicio -->
+          <div class="box">
+            <label>Dia Fim: </label>
+            <div class="boxCalendario">
+              <input type="date" class="calendario"  placeholder ="Seleciona um dia">
+              <img class="calendarioIcon" src="icons/calendario.png" alt="calendario Icon">
+            </div>
+          </div><!-- calendariosFIM -->
+        </div><!-- calendarios -->
+
+        <div id="horas">
+          <div class="boxHoras colorPreto">
+            <label>Horas inicio: </label>
+            <input type="time" value="00:00">
+          </div>
+          <div class="boxHoras colorPreto" >
+            <label>Horas de Fim: </label>
+            <input type="time" value="00:00">
+          </div>
+        </div><!-- horas -->
+
+
+        <div class="divsearchBox">
+          <label class="colorPreto">Local da ação: </label>
+          <div class="boxLocal">
+            <select class="local"></select>
+          </div><!-- localAcao -->
+          <label class="colorPreto">Tipo ação: </label>
+          <div class="boxLocal">
+            <select class="local"></select>
+          </div><!-- tipoAcao -->
+        </div>
+        <button type="button" class="botaoCriarAcao" onclick="criarAcao()" >Criar Ação</button> 
+      </main>
+</body>
+</html>

@@ -21,3 +21,15 @@ module.exports.getAcao = async function(acao_id) {
         return {status: 500, data: err};
     } 
 };
+
+module.exports.criarAcao = async function(acao) {
+    try {
+
+        let sql = "INSERT INTO acao( organizacao_id, local, tipoAcao, extraInfo,email,diaAcaoInicio,diaAcaoFim,pessoasInscritas,localizacao) " + "VALUES (?,?,?,?,?,?,?,?,?)";
+        let result = await pool.query(sql, [ acao.organizacao_id,acao.local,acao.tipoAcao,acao.extraInfo,acao.email,acao.diaAcaoInicio,acao.diaAcaoFim,acao.pessoasInscritas,acao.localizacao ]);
+        return {status: 200, data: result};
+    } catch (err) {
+        console.log(err);
+        return {status: 500, data: err};
+    } 
+}; 

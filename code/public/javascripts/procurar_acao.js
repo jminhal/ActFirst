@@ -33,7 +33,7 @@ function mapSetup(position){
       .bindPopup('A sua localização')
       .openPopup();
 }
-
+// vai buscar a  nossa localizacao
 function getLocalizacao(){
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(mapSetup);

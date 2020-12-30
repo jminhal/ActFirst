@@ -13,4 +13,10 @@ router.get('/:pos', async function(req, res, next) {
     res.status(result.status).send(result.data);
 });
 
+router.post('/', async function(req, res, next) {
+    let acao = req.body;
+    let result = await acoesModel.criarAcao(acao);
+    res.status(result.status).send(result.data);
+});
+
 module.exports = router;
