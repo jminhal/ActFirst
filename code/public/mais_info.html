@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+  <title></title>
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!--Css & JavaScript do mapa-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+
+
+  <link rel="stylesheet" href="/stylesheets/mais_info.css">
+  <script src="javascripts/mapa.js"></script>
+</head>
+<html>
+<body>
+  <header class= "header">
+    <img id="actfirstLogo" src="icons/ActFirst.png" alt="ActFirst Logo">
+      <section class="boxNavAvatar">
+        <div class="titulo">Mais informações</div>
+        <div class="divLogoAvatar">
+          test
+          <img id="user" src="icons/user.png" alt="Avatar">
+        </div>
+      </section>
+  </header> 
+    <main>
+        <section class="infoAndMap">
+            <a href="procurar_acao.html"><img src="icons/back_arrow.png" alt="back_arrow" id="backArrow"></a>
+            <section class="maisInfo">
+                <section class="maisInfoBox">
+                    <label>Nome da ação:</label>
+                    <label>Nome da Organização Promotora:</label>
+                    <label>Data de inicio:</label>
+                    <label>Data de fim:</label>
+                    <label>Email:</label>
+                    <label>Maximo de pessoas:</label>
+                    <label>Pessoas inscritas</label>
+                    <label>Tipo de ação:</label>
+                    <label>Localização:</label>
+                </section>
+            </section>
+            <section id="map"></section>
+        </section>
+        <section class="botao">
+            <button type="button" class="botaoAbandonar" onclick="abandonarAcao()" >Abandonar</button> 
+        </section>
+    </main>
+</body>
+</html>
