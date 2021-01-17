@@ -21,3 +21,19 @@ module.exports.getUtilizador = async function(user_id) {
         return {status: 500, data: err};
     } 
 };
+//acao participada de um utilizador 
+module.exports.getParticipadasUtilizador = async function(user_id) {
+    try {
+        let sql = "SELECT * "+
+        "FROM acao A, acaoparticipada AP, utilizador U, tipoacao TA"+
+        "WHERE user_id = ? "+
+        "AND  A.acao_id=AP.acao_id AND U.user_id=AP.acao_id AND TA.tipoAcao_id=A.tipoAcao";
+
+        let participadas = await pool.query(sql, [ user_id ]);
+        return {status: 200, data: participadas};
+    } catch (err) {
+        console.log(err);
+        return {status: 500, data: err};
+    } 
+};
+

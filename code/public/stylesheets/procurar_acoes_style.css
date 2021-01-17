@@ -1,7 +1,10 @@
-*{font-family: 'Nerko One', cursive;}
 body{
-    color: white;
+  color: white;
+  font-family: 'Nerko One', cursive;
+  font-size: 20px;
 }
+
+
 header{
   background-color: #F57C47;
   display: flex;
@@ -18,14 +21,12 @@ header{
   justify-content: space-between;
 
 }
-.boxNav{
-  margin-left: 2%;
-  display: flex;
-  justify-content: space-between;
-  width: 40%;
+.titulo{
+  width: 100%;
+  justify-content: center;
+  text-align: center;
 }
 .boxNav a{
-  color: white;
   text-decoration: none;
   padding: 10px;
   border-radius: 8px;
@@ -45,10 +46,35 @@ header{
     align-items: center;
     background-color: #FBF1E5;
     width: 100%;
-    height: 100px;
+    height: 150px;
+    
   }
- 
+  .tipoAcao{
+    width: 25%;
+    font-size: 15px;
+    color: black;
+    padding: 15px;
+  }
+  .checkBoxs{
+    width: 5%;
+    display: flex;
+    flex-direction: column;
+    height: 75%;
+  }
+#AP{
+  margin-top: 25%;
+}
+#APP{
+  margin-top: 38%;
+}
+#AF{
+  margin-top: 39%;
+}
+  
+  
+
   .divsearchBox{
+    padding-right: 22%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -109,3 +135,4 @@ header{
   }
 
   #map { height: 735px; }
+

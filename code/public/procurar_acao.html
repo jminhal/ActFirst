@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <head>
   <title></title>
-  
   <!-- JQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!--Css & JavaScript do mapa-->
@@ -14,27 +13,32 @@
 
 
   <link rel="stylesheet" href="/stylesheets/procurar_acoes_style.css">
-  <script src="javascripts/procurar_acao.js"></script>
+  <script src="javascripts/mapa.js"></script>
 </head>
 <html>
 <body>
   <header class= "header">
     <img id="actfirstLogo" src="icons/ActFirst.png" alt="ActFirst Logo">
       <section class="boxNavAvatar">
-        <nav class="boxNav">
-          <a style="background-color:  #B78414;" href="/procurar_acao.html">Procurar ações</a> 
-          <a href="/acoes_participadas.html">Ações participadas</a> 
-          <a href="/acoes_participacao.html">Ações a participar</a> 
-          <a href="/futuras_acoes.html">Futuras ações</a>
-        </nav>
+        <div class="titulo">Procurar ações</div>
         <div class="divLogoAvatar">
-          <h1>test</h1>
+          test
           <img id="user" src="icons/user.png" alt="Avatar">
         </div>
       </section>
   </header> 
     <main>
       <section class="searchBox">
+        <div class="tipoAcao">
+          <p>Ações Participadas</p>
+          <p>Ações em Participação</p>
+          <p>Ações Futuras</p>
+        </div>
+        <div class="checkBoxs">
+          <input type="checkbox" id="AP">
+          <input type="checkbox" id="APP">
+          <input type="checkbox" id="AF">
+        </div>
         <div class="divsearchBox">
           <div class="boxLocal">
             <img id="localIcon" src="icons/search.png" alt="Search Icon">
@@ -48,9 +52,9 @@
         </div>
         
       </section>
-      <div id="map">
+      <section id="map">
 
-      </div>
+      </section>
 
 
 

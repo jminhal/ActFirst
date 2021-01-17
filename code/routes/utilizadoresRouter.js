@@ -13,4 +13,11 @@ router.get('/:pos', async function(req, res, next) {
     res.status(result.status).send(result.data);
 });
 
+router.get('/:id/participadas', async function(req, res, next) {
+    let id = req.params.id;
+    let result = await utilizadoresModel.getParticipadasUtilizador(id);
+    res.status(result.status).send(result.data);
+
+});
+
 module.exports = router;
