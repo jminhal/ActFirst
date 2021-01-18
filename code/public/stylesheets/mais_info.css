@@ -54,7 +54,7 @@ body{
     align-items: center;
     text-align: center;
 }
-.maisInfoBox{
+#maisInfoBox{
     display: flex;
     flex-direction: column;
 }
@@ -73,6 +73,7 @@ body{
   main{
       display: flex;
       flex-direction: column;
+      margin-top: 100px;
   }
   .botao{
       padding-top: 5%;
@@ -81,5 +82,13 @@ body{
       text-align: center;
   }
   #backArrow {
-    padding:15px;
+    width: 50px;
+    margin-left: 75px;
+  }
+
+  .mapaBox{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }

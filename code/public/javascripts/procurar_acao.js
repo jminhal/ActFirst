@@ -17,9 +17,8 @@ function showParticipadas(participadas) {
       "<p>Nome Ação:"+participada.tipoAcao+"</p>"+
       "<p>Nome Organização:"+participada.username+"</p>"
       "<p>Dia ação:"+participada.diaAcaoInicio+"</p>"+
-      "<p>Total de pessoas inscritas/Maximo:"+participada.pessoasInscritas+"/"+participada.maximoPessoas+"</p>";
+      "<p>Total de pessoas inscritas/Maximo:"+participada.pessoasInscritas+"/"+participada.maximoPessoas+"</p></section>";
 
   }
   document.getElementById("").innerHTML = html;
 }
-

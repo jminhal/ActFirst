@@ -14,6 +14,7 @@
 
   <link rel="stylesheet" href="/stylesheets/mais_info.css">
   <script src="javascripts/mapa.js"></script>
+  <script src="javascripts/mais_info.js"></script>
 </head>
 <html>
 <body>
@@ -31,19 +32,12 @@
         <section class="infoAndMap">
             <a href="procurar_acao.html"><img src="icons/back_arrow.png" alt="back_arrow" id="backArrow"></a>
             <section class="maisInfo">
-                <section class="maisInfoBox">
-                    <label>Nome da ação:</label>
-                    <label>Nome da Organização Promotora:</label>
-                    <label>Data de inicio:</label>
-                    <label>Data de fim:</label>
-                    <label>Email:</label>
-                    <label>Maximo de pessoas:</label>
-                    <label>Pessoas inscritas</label>
-                    <label>Tipo de ação:</label>
-                    <label>Localização:</label>
+                <section id="maisInfoBox">
                 </section>
             </section>
-            <section id="map"></section>
+            <section class="mapaBox">
+              <section id="map"></section>
+            </section>
         </section>
         <section class="botao">
             <button type="button" class="botaoAbandonar" onclick="abandonarAcao()" >Abandonar</button> 

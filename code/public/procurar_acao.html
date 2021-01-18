@@ -35,14 +35,20 @@
           <p>Ações Futuras</p>
         </div>
         <div class="checkBoxs">
-          <input type="checkbox" id="AP">
-          <input type="checkbox" id="APP">
-          <input type="checkbox" id="AF">
+          <input type="radio" name="acao" id="AP">
+          <input type="radio" name="acao" id="APP">
+          <input type="radio" name="acao" id="AF">
         </div>
         <div class="divsearchBox">
           <div class="boxLocal">
             <img id="localIcon" src="icons/search.png" alt="Search Icon">
-            <select class="local" id="localizacao"></select>
+            <select class="local" id="localizacao">
+              <option>Faro</option>
+              <option>Lisboa</option>
+              <option>Porto</option>
+
+
+            </select>
           </div>
           <div class="boxCalendario">
             <input type="date" class="calendario" id="date"  placeholder ="Seleciona um dia">

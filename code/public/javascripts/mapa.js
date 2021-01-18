@@ -1,5 +1,5 @@
-var acoesFiltradas=[];//guarda as acoes que o voluntario "selecionou" conforme o dia/local
 var map,markers;
+var utilizadorID=2;
 
 
 window.onload = async function () {
@@ -41,39 +41,69 @@ function getLocalizacao(){
 }
 
 async function procurarAcoes(){
-  var data= document.getElementById("date").value;
-  var localizacao= document.getElementById("localizacao").value;
-  acoesFiltradas=[];
-  if(data!== "" && localizacao!== ""){
-    try {
-      let acoes = await $.ajax({
-          url: "/api/acoes",
+  let AP= document.getElementById("AP");
+  let APP= document.getElementById("APP");
+  let AF= document.getElementById("AF");
+  let data= document.getElementById("date").value;
+  let localizacao= document.getElementById("localizacao").value;
+  let acoes=[];
+  if(data!== "" && localizacao!== "" ){
+    if(AP.checked){
+      //Passado
+      try {
+        //vai buscar as ações de um certo user (participadas)
+        acoes = await $.ajax({
+          url: "/api/acoes/participadas?userID="+utilizadorID+"&localizacao="+localizacao+"&data="+data,
           method: "get",
           dataType: "json"
-      });
-      for (let acao of acoes) {
-        if(localizacao==acao.localizacao && data==acao.diaAcaoInicio.substring(0,10)){
-          acoesFiltradas.push(acao);
-        }
-      }
-      if(acoesFiltradas.length>0){
-        markers.clearLayers();
-        for(let acao of acoesFiltradas){
-          var markerIcon = L.icon({
-            iconUrl:'./icons/markerVerde.png',
-            iconSize:     [50, 50], // size of the icon
-            popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
         });
-        var local=acao.local;
-        var splitLocal=local.split("@");
-        var latitude=splitLocal[0];
-        var longitude=splitLocal[1];
-        L.marker(new L.LatLng(latitude, longitude), {icon: markerIcon}).addTo(markers);
-        }
+      } 
+      catch(err) {
+        console.log(err);
       }
-    } 
-    catch(err) {
-      console.log(err);
+      
     }
+    //Presente
+    if(APP.checked){
+      try {
+        //vai buscar as ações de um certo user (em participação)
+        acoes = await $.ajax({
+          url: "/api/acoes/participacoes?userID="+utilizadorID+"&localizacao="+localizacao+"&data="+data,
+          method: "get",
+          dataType: "json"
+        });
+      } 
+      catch(err) {
+        console.log(err);
+      }
+      
+    }
+    //Futuro
+    if(AF.checked){
+      try {
+        //vai buscar as ações de um certo user (futuras)
+        acoes = await $.ajax({
+          url: "/api/acoes/futuras?userID="+utilizadorID+"&localizacao="+localizacao+"&data="+data,
+          method: "get",
+          dataType: "json"
+        });
+      } 
+      catch(err) {
+        console.log(err);
+      }
+      
+    }
+    if(acoes){
+     markers.clearLayers();
+      for(let acao of acoes){
+        var markerIcon = L.icon({
+          iconUrl:'./icons/markerVerde.png',
+          iconSize:     [50, 50], // size of the icon
+          popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+       });
+        L.marker(new L.LatLng(acao.lat, acao.lng), {icon: markerIcon}).addTo(markers);
+      }
+    }
+
   }
 }
