@@ -1,0 +1,71 @@
+body{
+  color: white;
+  font-family: 'Nerko One', cursive;
+  font-size: 20px;
+}
+
+
+header{
+  background-color: #F57C47;
+  display: flex;
+  align-items: center;
+}
+#actfirstLogo {
+  width: 100px;
+  padding: 5px;
+}
+.boxNavAvatar{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.titulo{
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+.divLogoAvatar{
+  display: flex;
+  align-items: center;
+}
+
+#user {
+  width: 100px;
+  padding: 5px;
+}
+  
+.searchBox {
+  background-color: #FBF1E5;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+}
+
+.checkBoxs {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  margin-right: 15px;
+}
+
+.checkBoxs div {
+  margin-bottom: 10px;
+}
+
+.botaoPesquisar{
+  color: white;
+  background-color: #2B8B34;
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: 2px solid #2B8B34;
+  cursor: pointer;
+  height: min-content;
+}
+
+#map { height: 735px; }
+

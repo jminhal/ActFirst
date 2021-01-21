@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+  <title></title>
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!--Css & JavaScript do mapa-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+
+
+  <link rel="stylesheet" href="/stylesheets/suas_acoes.css">
+  <script src="javascripts/suas_acoes.js"></script>
+</head>
+<html>
+<body>
+  <header class= "header">
+    <img id="actfirstLogo" src="icons/ActFirst.png" alt="ActFirst Logo">
+      <section class="boxNavAvatar">
+        <div class="titulo">As suas ações</div>
+        <div class="divLogoAvatar">
+          <div id="userName"></div>
+          <img id="user" src="icons/user.png" alt="Avatar">
+        </div>
+      </section>
+  </header> 
+    <main>
+        <section class="searchBox">
+            <section class="checkBoxs">
+                <div>
+                    <label>Ações Participadas</label>
+                    <input type="radio" name="acao" id="AP">
+                </div>
+                <div>
+                    <label>Ações em Participação</label>
+                    <input type="radio" name="acao" id="APP">
+                </div>
+                <div>
+                    <label>Ações Futuras</label>
+                    <input type="radio" name="acao" id="AF">
+                </div>
+            </section>
+            <button type="button" class="botaoPesquisar" onclick="suasAcoesFiltrar()" >Procurar</button> 
+        </section>
+      <section id="map">
+
+      </section>
+    </main>
+</body>
+</html>

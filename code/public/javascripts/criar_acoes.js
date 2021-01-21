@@ -1,3 +1,21 @@
+var utilizadorID=2;
+
+window.onload = async function () {
+    try {
+        let user = await $.ajax({
+        url: "/api/utilizadores/"+utilizadorID,
+        method: "get",
+        dataType: "json"
+        });
+        document.getElementById("userName").innerHTML=user.username;
+    } 
+    catch(err) {
+        console.log(err);
+    }
+}
+
+
+
 async function criarAcao(){
     /*if(){
         VERIFICAR SE ESTA TUDO PREENCHIDO

@@ -1,8 +1,10 @@
-*{font-family: 'Nerko One', cursive;}
 body{
-    color: white;
-    background-color:  #FAF9FF;
+  color: white;
+  font-family: 'Nerko One', cursive;
+  font-size: 20px;
 }
+
+
 header{
   background-color: #F57C47;
   display: flex;
@@ -19,14 +21,12 @@ header{
   justify-content: space-between;
 
 }
-.boxNav{
-  margin-left: 2%;
-  display: flex;
-  justify-content: space-between;
-  width: 15%;
+.titulo{
+  width: 100%;
+  justify-content: center;
+  text-align: center;
 }
 .boxNav a{
-  color: white;
   text-decoration: none;
   padding: 10px;
   border-radius: 8px;
