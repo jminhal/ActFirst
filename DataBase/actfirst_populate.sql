@@ -17,32 +17,25 @@ insert into tipoAcao (nome) values('Limpar Jardim');
 
  
 insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,email,diaAcaoInicio,diaAcaoFim,pessoasInscritas,maximoPessoas) 
-			values(1,38.7237927,-9.1421934,'Lisboa',1,'Levar roupa adquada','AbrigoSeguro@IADE.pt','2020-12-12','2020-12-30',0,20);
+			values(4,38.7237927,-9.1421934,'Lisboa',1,'Levar roupa adquada','AbrigoSeguro@IADE.pt','2020-12-12','2020-12-30',0,20);
 insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,email,diaAcaoInicio,diaAcaoFim,pessoasInscritas,maximoPessoas) 
 			values(12,38.728244,-9.139271,'Lisboa',2,'Levar roupa adquada','CruzVermelha@IADE.pt','2020-12-15','2020-12-30',0,30);
 insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,email,diaAcaoInicio,diaAcaoFim,pessoasInscritas,maximoPessoas) 
 			values(11,38.7183333,-9.1507342,'Lisboa',3,'Levar roupa adquada','FlorinhasVouga@IADE.pt','2020-12-30','2021-01-15',0,80);
  
  
-  
+
  
- 
- 
-insert into acaoParticipada (acao_id,user_id) values(1,2);
-insert into acaoParticipada (acao_id,user_id) values(2,2);
-insert into acaoParticipada (acao_id,user_id) values(1,3);
-insert into acaoParticipada (acao_id,user_id) values(2,3);
-
-
-
-insert into acaoParticipacao (acao_id,user_id) values(1,6);
-insert into acaoParticipacao (acao_id,user_id) values(2,6);
-insert into acaoParticipacao (acao_id,user_id) values(2,7);
-insert into acaoParticipacao (acao_id,user_id) values(1,8);
-
-
-insert into futuraAcao (acao_id,user_id) values(3,7);
-insert into futuraAcao (acao_id,user_id) values(3,8);
+insert into acaoUtilizador (acao_id,user_id) values(1,2);
+insert into acaoUtilizador (acao_id,user_id) values(2,2);
+insert into acaoUtilizador (acao_id,user_id) values(1,3);
+insert into acaoUtilizador (acao_id,user_id) values(2,3);
+insert into acaoUtilizador (acao_id,user_id) values(1,6);
+insert into acaoUtilizador (acao_id,user_id) values(2,6);
+insert into acaoUtilizador (acao_id,user_id) values(2,7);
+insert into acaoUtilizador (acao_id,user_id) values(1,8);
+insert into acaoUtilizador (acao_id,user_id) values(3,7);
+insert into acaoUtilizador (acao_id,user_id) values(3,8);
 
 
 

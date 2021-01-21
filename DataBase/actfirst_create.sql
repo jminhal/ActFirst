@@ -23,24 +23,12 @@ create table acao (acao_id int not null auto_increment,
 					maximoPessoas int not null,
                     primary key (acao_id),
 					foreign key (tipoAcao) references tipoAcao(tipoAcao_id),
-					foreign key (organizacao_id) references utilizador(user_id));					
+					foreign key (organizacao_id) references utilizador(user_id));	
 					
-create table acaoParticipada (acaoParticipada_id int not null auto_increment,
+					
+create table acaoUtilizador (acaoUtilizador int not null auto_increment,
 						acao_id int not null,
 						user_id int not null,
-                        primary key (acaoParticipada_id),
+                        primary key (acaoUtilizador),
                         foreign key (acao_id) references acao(acao_id),
                         foreign key (user_id) references utilizador(user_id));					
-create table acaoParticipacao (acaoParticipacao_id int not null auto_increment,
-						acao_id int not null,
-						user_id int not null,
-                        primary key (acaoParticipacao_id),
-                        foreign key (acao_id) references acao(acao_id),
-                        foreign key (user_id) references utilizador(user_id));
-						
-create table futuraAcao (futuraAcao_id int not null auto_increment,
-						acao_id int not null,
-						user_id int not null,
-                        primary key (futuraAcao_id),
-                        foreign key (acao_id) references acao(acao_id),
-                        foreign key (user_id) references utilizador(user_id));
