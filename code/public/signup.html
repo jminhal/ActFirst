@@ -8,39 +8,44 @@
 
   <body class="index-body">
     <header class="header">
-      <img id="avatar" src="images/actfirst.jpg" alt="actfirst">
+      <img id="avatar" src="icons/ActFirst.png" alt="actfirst">
       <section class="title">
-        <a href="home.html">Home</a>
+        <a href="index.html">Home</a>
         <a href="login.html">Login</a>
-        <a href="aboutus.html">About Us</a>
         <a href="signup.html">Sign Up</a>
+        <a href="testemunhos.html">Testemunhos</a>
       </section>
     </header>
+
+    <body>
+      <header>
+          <h1>Sign Up</h1>
+          <nav> <a href="index.html">Back</a></nav>
+      </header>
     
-    <section>
-        <p class="titlel">Sign Up:</p>
-    </section>
 
     <main>
-      <section class="SignupL">
+      <section class="name">
         <div class="grid-container">
-            <div class="nome grid-item"><p>Nome</p></div>
-            <div class="signup grid-item"><p>Sign Up</p></div>
+          <div>
+            <div class="grid-item"><h3> Name: <input type="text" id="username"> </h3>
+              <h2 id="err"></h2></div>
+          </div>
+          <div class="grid-item">
+            <input type="button" value="Sign Up" id=signup onclick="SignUp()"> 
+          </div>
         </div>
       </section>
-
-    </main>
-    </body>
+      <section>
+        <div class="grid-item"><img id="ajudar" src="imagens/ajudar.jpg" alt="ajudar"></div>
+      </section>
+    </main>  
+  </body>
    
     <footer id="footer">
         <section class="redes">
-          <a href= "facebook"><img id="face" src="images/facebook.png" alt="facebook"></a></div>
-          <a href= "instagram"><img id="insta" src="images/instagram.png" alt="instagram"></a></div>
-          <a href= "twitter"><img id="twit" src="images/twitter.png" alt="twitter"></a></div>
-          <a href= "github"><img id="git" src="images/github.png" alt="github"></a></div>
-          <a href= "youtube"><img id="you" src="images/youtube.png" alt="youtube"></a></div>
           <div id="linha">
-          <img id="jact" src="images/Jact.png"><b>Just Act</b></div>
+          <img id="jact" src="icons/Jact.png"><b>Just Act</b></div>
         </section>
       </footer>
     

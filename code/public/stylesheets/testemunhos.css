@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+  }
+  
+  .grid-item {
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+    color: rgb(124, 93, 46);
+  }
+  
+  .testemunhos {
+    background-color: #fbf1e5;
+  }
+
+  .metade {
+    width: 50%;
+  }
+
+  .pessoa {
+    width:300px;
+    border-radius: 20px;
+  }
+  

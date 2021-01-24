@@ -1,42 +1,49 @@
-.titlel{
-    font-size: 50px;
-    padding: 20px;
-    text-align: left;
+.back {
+    font-size: 20px;
+    padding: 10px;
 }
-
 .header {
-    height: 45%;
+    height: 100%;
   }
 
-.login {
-    border-style: solid;
-    border-radius: 20px;
-    font-size: 25px;
-    text-align: center;
-    color: white;
-    margin: 100px 300px;
-    background-color: green;
-}
-
-.nome {
-    border-style: solid;
-    border-color: black;
-    border-radius: 10px;
-    font-size: 25px;
-    text-align: center;
-    color: black; 
-    margin: 100px 470px;
+#lixo {
+    width: 500px;
+    align-items: right;
+    padding: 1px;
 }
 
 .grid-container {
-    display: flex;
+    display: grid;
     grid-template-columns: 1fr 1fr;
+    padding: 20px;
   }
   
+
 .content {
     flex: 1 0 auto;
 }
 
+#login {
+    border-style: solid;
+    border-color: green;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    background-color: green; 
+    margin: 1px;
+}
+
+
+#username {
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: left;
+    color: black; 
+    margin: 1px;
+}
 .footer {
     flex-shrink: 0;
 }
@@ -45,7 +52,7 @@ html, body {
     height: 100%;
 }
 
-body{
-    display: flex;
+body { 
+    display: grid;
     flex-direction: column;
 }
