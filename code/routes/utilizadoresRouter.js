@@ -3,7 +3,7 @@ var router = express.Router();
 var utilizadoresModel=require('../Models/utilizadoresModel') 
 
 router.get('/', async function(req, res, next) {
-    let result = await utilizadoresModel.getAllUtilizadores();
+    let result = await utilizadoresModel.getAllUtilizadores(req.body.utilizadores);
     res.status(result.status).send(result.data);
 });
 
@@ -13,5 +13,10 @@ router.get('/:pos', async function(req, res, next) {
     res.status(result.status).send(result.data);
 });
 
-
+router.post('/login', async function(req, res, next) {
+    let result = await utilizadoresModel.login(req.body.username);
+    res.status(result.status).
+       send(result.data);
+  });
+  
 module.exports = router;
