@@ -13,7 +13,6 @@
 
 
   <link rel="stylesheet" href="/stylesheets/criar_acoes.css">
-  <link rel="stylesheet" href="/stylesheets/style.css">
   <script src="javascripts/criar_acoes.js"></script>
 </head>
 <html>
@@ -22,44 +21,39 @@
     <img id="actfirstLogo" src="icons/ActFirst.png" alt="ActFirst Logo">
       <section class="boxNavAvatar">
         <div class="titulo">Criar Ações</div>
-        <nav> <a href="index.html">Voltar</a></nav>
         <div class="divLogoAvatar">
           <div id="userName"></div>
           <img id="user" src="icons/user.png" alt="Avatar">
         </div>
       </section>
   </header> 
-    
-    <main class="colorPreto">
-      <h1 id="titulo">Informações Ações:</h1>
+    <main class="main">
+      <section id="titulo">Informações Ações:</section>
+      <section>
         <div id="calendarios">
           <div class="box">
-            <label>Dia Inicio:  </label>
+            <label>Dia Inicio: </label>
             <div class="boxCalendario">
               <input type="date" class="calendario" placeholder ="Seleciona um dia">
+              <img class="calendarioIcon" src="icons/calendario.png" alt="calendario Icon">
             </div>
           </div><!-- calendariosInicio -->
-          <pre>
-
-          </pre>
           <div class="box">
             <label>Dia Fim: </label>
             <div class="boxCalendario">
               <input type="date" class="calendario"  placeholder ="Seleciona um dia">
+              <img class="calendarioIcon" src="icons/calendario.png" alt="calendario Icon">
             </div>
           </div><!-- calendariosFIM -->
         </div><!-- calendarios -->
 
         <div id="horas">
-          <label>Horas inicio: </label>
           <div class="boxHoras colorPreto">
+            <label>Horas inicio: </label>
             <input type="time" value="00:00">
           </div>
-          <pre>
-
-          </pre>
-          <label>Horas de Fim: </label>
           <div class="boxHoras colorPreto" >
+            <label>Horas de Fim: </label>
             <input type="time" value="00:00">
           </div>
         </div><!-- horas -->
@@ -75,8 +69,8 @@
             <select class="local"></select>
           </div><!-- tipoAcao -->
         </div>
+      </section>
         <button type="button" class="botaoCriarAcao" onclick="criarAcao()" >Criar Ação</button> 
       </main>
-
 </body>
 </html>

@@ -13,26 +13,29 @@
 
 
   <link rel="stylesheet" href="/stylesheets/procurar_acoes.css">
-  <link rel="stylesheet" href="/stylesheets/style.css">
   <script src="javascripts/procurar_acoes.js"></script>
 </head>
 <html>
 <body>
   <header class= "header">
     <img id="actfirstLogo" src="icons/ActFirst.png" alt="ActFirst Logo">
+
       <section class="boxNavAvatar">
         <div class="titulo">Procurar ações</div>
-        <nav> <a href="index.html">Voltar</a></nav>
-        <div class="divLogoAvatar">
-          <div id="userName"></div>
-          <img id="user" src="icons/user.png" alt="Avatar">
-        </div>
+        <section class="dropdown">
+          <div class="divLogoAvatar">
+            <div id="userName"></div>
+            <img id="user" src="icons/user.png" alt="Avatar">
+          </div>
+          <div class="dropdown-content">
+            <a href="#" class="selected">Procurar ações</a>
+            <a href="suas_acoes.html">As suas ações</a>
+            <a href="#" onclick="logout()">Logout</a>
+          </div>
+        </section>
       </section>
   </header> 
     <main>
-      <section class="filtro">
-        <label>Filtrar por:</label>
-      </section>
       <section class="searchBox">
         <div class="divsearchBox">
           <div class="boxLocal">
@@ -55,7 +58,10 @@
 
       </section>
 
+
+
+
+
     </main>
-    
 </body>
 </html>
