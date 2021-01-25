@@ -14,9 +14,28 @@ router.post('/', async function(req, res, next) {
     res.status(result.status).send(result.data);
 });
 
+
+router.post('/addacao', async function(req, res, next) {
+    let acao = req.body;
+    let result = await acoesModel.addAcaoUtilizador(acao);
+    res.status(result.status).send(result.data);
+});
+
 router.get('/participadas', async function(req, res, next) {
     let obj = req.query;
     let result = await acoesModel.getAcoesParticipadas(obj);
+    res.status(result.status).send(result.data);
+});
+
+router.get('/participacao', async function(req, res, next) {
+    let obj = req.query;
+    let result = await acoesModel.getAcoesParticipacaoPresente(obj);
+    res.status(result.status).send(result.data);
+});
+
+router.get('/futuras', async function(req, res, next) {
+    let obj = req.query;
+    let result = await acoesModel.getAcoesFuturas(obj);
     res.status(result.status).send(result.data);
 });
 

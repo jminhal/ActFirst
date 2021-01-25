@@ -65,8 +65,57 @@ async function suasAcoesFiltrar(){
   }
   if(APP.checked){
 
+    try {
+      let acoes = await $.ajax({
+        url: "/api/acoes/participacao?userID="+utilizadorID,
+        method: "get",
+        dataType: "json"
+      });
+
+      markers.clearLayers();
+      for(let acao of acoes){
+        var markerIcon = L.icon({
+          iconUrl:'./icons/markerVerde.png',
+          iconSize:     [50, 50], // size of the icon
+          popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+       });
+        L.marker(new L.LatLng(acao.lat, acao.lng), {icon: markerIcon}).addTo(markers);
+      }
+
+      if (acoes.length == 0) {
+        alert("Não se encontra a participar em nenhuma ação!");
+      }
+    } 
+    catch(err) {
+      console.log(err);
+    }
+
   }
   if(AF.checked){
+    try {
+      let acoes = await $.ajax({
+        url: "/api/acoes/futuras?userID="+utilizadorID,
+        method: "get",
+        dataType: "json"
+      });
+
+      markers.clearLayers();
+      for(let acao of acoes){
+        var markerIcon = L.icon({
+          iconUrl:'./icons/markerVerde.png',
+          iconSize:     [50, 50], // size of the icon
+          popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+       });
+        L.marker(new L.LatLng(acao.lat, acao.lng), {icon: markerIcon}).addTo(markers);
+      }
+
+      if (acoes.length == 0) {
+        alert("Não se encontra a participar em nenhuma ação futuramente!");
+      }
+    } 
+    catch(err) {
+      console.log(err);
+    }
 
   }
 }

@@ -13,7 +13,6 @@
 
 
   <link rel="stylesheet" href="/stylesheets/suas_acoes.css">
-  <link rel="stylesheet" href="/stylesheets/style.css">
   <script src="javascripts/suas_acoes.js"></script>
 </head>
 <html>
@@ -22,17 +21,20 @@
     <img id="actfirstLogo" src="icons/ActFirst.png" alt="ActFirst Logo">
       <section class="boxNavAvatar">
         <div class="titulo">As suas ações</div>
-        <nav> <a href="index.html">Voltar</a></nav>
-        <div class="divLogoAvatar">
-          <div id="userName"></div>
-          <img id="user" src="icons/user.png" alt="Avatar">
-        </div>
+        <section class="dropdown">
+          <div class="divLogoAvatar">
+            <div id="userName"></div>
+            <img id="user" src="icons/user.png" alt="Avatar">
+          </div>
+          <div class="dropdown-content">
+            <a href="procurar_acoes.html">Procurar ações</a>
+            <a href="suas_acoes.html" class="selected">As suas ações</a>
+            <a href="#" onclick="logout()">Logout</a>
+          </div>
+        </section>
       </section>
   </header> 
     <main>
-      <section class="filtro">
-        <label>Filtrar por:</label>
-      </section>
         <section class="searchBox">
             <section class="checkBoxs">
                 <div>
@@ -54,7 +56,5 @@
 
       </section>
     </main>
-
-    
 </body>
 </html>
