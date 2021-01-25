@@ -17,12 +17,11 @@ insert into tipoAcao (nome) values('Limpar Jardim');
 
  
 insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,email,diaAcaoInicio,diaAcaoFim,pessoasInscritas,maximoPessoas) 
-			values(4,38.7237927,-9.1421934,'Lisboa',1,'Levar roupa adquada','AbrigoSeguro@IADE.pt','2020-12-12','2020-12-30',0,20);
+			values(4,38.7237927,-9.1421934,'Lisboa',1,'Levar roupa adquada','AbrigoSeguro@IADE.pt','2020-12-12 15:00:00','2020-12-30 16:30:00',0,20);
 insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,email,diaAcaoInicio,diaAcaoFim,pessoasInscritas,maximoPessoas) 
-			values(12,38.728244,-9.139271,'Lisboa',2,'Levar roupa adquada','CruzVermelha@IADE.pt','2020-12-15','2020-12-30',0,30);
+			values(12,38.728244,-9.139271,'Lisboa',2,'Levar roupa adquada','CruzVermelha@IADE.pt','2020-12-15 13:00:00','2020-12-30 15:00:00',0,30);
 insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,email,diaAcaoInicio,diaAcaoFim,pessoasInscritas,maximoPessoas) 
-			values(11,38.7183333,-9.1507342,'Lisboa',3,'Levar roupa adquada','FlorinhasVouga@IADE.pt','2020-12-30','2021-01-15',0,80);
- 
+			values(11,38.7183333,-9.1507342,'Lisboa',3,'Levar roupa adquada','FlorinhasVouga@IADE.pt','2020-12-30 14:00:00','2021-01-15 19:00:00',0,80);
  
 
  
