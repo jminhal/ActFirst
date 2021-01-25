@@ -4,17 +4,18 @@
   grid-template-columns: auto;
   text-align: center;
   color:#2B8B34;
+  background-color: #FBF1E5;
 }
 
 .header {
   grid-column: 1/2;
   display: flex;
   background: rgb(113, 207, 113);
-  padding: 10px;
+  padding: 5px;
 }
 
 nav {
-  display: block;
+  display: flex;
   flex-direction: row;
   padding: 40px;
   margin: 0px 0px 0px 0px;
@@ -31,20 +32,23 @@ nav a {padding-bottom: auto}
 
 
 #avatar {
-  width: 75px;
-  height: 75px;
+  width: 120px;
+  padding: 5px;
+  display: flex;
 }
 
 .title {
   margin:  auto 0% auto auto ;
   text-align: right;
+  width: 100%;
+  justify-content: center;
 }
 
 .title a {
   margin-right:25px;
   text-decoration: none;
   color:white;
-  text-align: right;
+  text-align: center;
 }
 
 * {
@@ -59,10 +63,12 @@ nav a {padding-bottom: auto}
   padding: 20px;
 }
 
-.grid-item {
+.grid-itemm {
   padding: 20px;
   font-size: 20px;
-  text-align: center;
+  text-align: justify;
+  margin-top: 300px;
+  color: rgb(165, 116, 42);
 }
 
 
@@ -103,6 +109,15 @@ nav a {padding-bottom: auto}
   color: black;
   font: 20px "Lucida Grande", Arial, Helvetica, sans-serif;
   bottom: 0;
+}
+
+#home {
+  background-color: rgb(27, 139, 27);
+  color:white;
+  border: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px 24px;
 }
 
 #jact {

@@ -1,35 +1,49 @@
 body{
-  color: white;
+  background-color: #FBF1E5;
   font-family: 'Nerko One', cursive;
   font-size: 20px;
+  color: white;
 }
+.filtro {
+  color:green;
+  background-color: #FBF1E5;
+  padding: 10px;
+  margin-top: 50px;
+  margin-left: 50px;
 
-
-header{
-  background-color: #55BE5F;
-  display: flex;
-  align-items: center;
 }
 #actfirstLogo {
-  width: 100px;
+  width: 120px;;
   padding: 5px;
 }
+
+.header {
+  grid-column: 1/2;
+  display: flex;
+  background: rgb(113, 207, 113);
+  padding: 1px;
+}
+
 .boxNavAvatar{
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 1px;
+  margin: 0px 0px 0px 0px;
 
 }
 .titulo{
   width: 100%;
   justify-content: center;
+  margin:  auto 0% auto auto ;
   text-align: center;
 }
 
 .divLogoAvatar{
   display: flex;
   align-items: center;
+  width: 120px;
 }
 
 #user {
@@ -38,7 +52,7 @@ header{
 }
   
 .searchBox {
-  background-color: #FAF9FF;
+  background-color: #FBF1E5;
   height: 150px;
   display: flex;
   justify-content: center;
@@ -59,13 +73,18 @@ header{
 
 .botaoPesquisar{
   color: white;
-  background-color: #55BE5F;
+  background-color: #2B8B34;
   padding: 10px 24px;
   border-radius: 8px;
-  border: 2px solid #55BE5F;
+  border: 2px solid #2B8B34;
   cursor: pointer;
   height: min-content;
 }
 
 #map { height: 735px; }
+
+.content {
+  flex: 1 0 auto;
+}
+
 

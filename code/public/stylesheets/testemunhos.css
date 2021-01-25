@@ -8,13 +8,17 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 10px;
+    margin-top: 50px;
   }
   
   .grid-item {
     padding: 20px;
     font-size: 20px;
-    text-align: center;
-    color: rgb(124, 93, 46);
+    text-align: justify;
+    color: rgb(165, 116, 42);
+    margin-left: 120px;
+    margin-top: 50px;
+    
   }
   
   .testemunhos {
@@ -28,5 +32,15 @@
   .pessoa {
     width:300px;
     border-radius: 20px;
+    margin-left: 150px;
   }
   
+#testemunhos {
+  background-color: rgb(27, 139, 27);
+  color:white;
+  border: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px 24px;
+
+}

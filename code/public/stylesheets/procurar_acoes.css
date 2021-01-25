@@ -2,18 +2,20 @@ body{
   color: white;
   font-family: 'Nerko One', cursive;
   font-size: 20px;
+  background-color: #FBF1E5;;
+}
+.filtro {
+  color:green;
+  background-color: #FBF1E5;
+  padding: 10px;
+  margin: 50px;
 }
 
-
-header{
-  background-color: #55BE5F;
-  display: flex;
-  align-items: center;
-}
 #actfirstLogo {
-  width: 100px;
+  width: 120px;
   padding: 5px;
 }
+
 .boxNavAvatar{
   width: 100%;
   display: flex;
@@ -40,13 +42,13 @@ header{
   .searchBox{
     display: flex;
     align-items: center;
-    background-color: #FAF9FF;
+    background-color: #FBF1E5;
     width: 100%;
     height: 150px;
+    margin-top: 50px;
     
   }
 
-  
 
   .divsearchBox{
     width: 100%;
@@ -75,10 +77,10 @@ header{
     width: 40px;
     height: 30px;
   }
-
+  
 
   .boxCalendario{
-    width: 8.5%;
+    width: 14%;
     margin-right: 2%;
     border: 1px solid grey;
     background-color: white;
@@ -101,12 +103,19 @@ header{
 
   .botaoPesquisar{
     color: white;
-    background-color: #55BE5F;
+    background-color: #2B8B34;
     padding: 10px 24px;
     border-radius: 8px;
-    border: 2px solid #55BE5F;
+    border: 2px solid #2B8B34;
     cursor: pointer;
   }
 
   #map { height: 735px; }
 
+  .content {
+    flex: 1 0 auto;
+}
+
+.footer {
+    flex-shrink: 0;
+}

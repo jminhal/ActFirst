@@ -1,0 +1,46 @@
+#logout {
+    color: white;
+    background-color: #2B8B34;
+    padding: 10px 24px;
+    border-radius: 10px;
+    border: 2px solid #2B8B34;
+    cursor: pointer;
+    align-items: center;
+    margin-left: center;
+}
+
+#username {
+    margin-right: 400px;
+}
+
+#user {
+    width: 300px;
+
+}
+.header {
+    height: 120px;
+  }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+  
+
+.content {
+    flex: 1 0 auto;
+}
+
+.footer {
+    flex-shrink: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body { 
+    display: grid;
+    flex-direction: column;
+}

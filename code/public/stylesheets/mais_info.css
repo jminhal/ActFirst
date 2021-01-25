@@ -2,17 +2,11 @@ body{
     color: white;
     font-family: 'Nerko One', cursive;
     font-size: 20px;
-    background-color: #FAF9FF;
+    background-color: #FBF1E5;
   }
   
-  
-  header{
-    background-color: #55BE5F;
-    display: flex;
-    align-items: center;
-  }
   #actfirstLogo {
-    width: 100px;
+    width: 120px;
     padding: 5px;
   }
   .boxNavAvatar{
