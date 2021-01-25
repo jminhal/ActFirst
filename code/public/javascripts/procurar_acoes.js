@@ -53,13 +53,21 @@ async function procurarAcoes(){
       });
 
       markers.clearLayers();
+
+      //vai buscar as acoes da lista e mete acoes no mapa
       for(let acao of acoes){
         var markerIcon = L.icon({
           iconUrl:'./icons/markerVerde.png',
           iconSize:     [50, 50], // size of the icon
           popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
        });
-        L.marker(new L.LatLng(acao.lat, acao.lng), {icon: markerIcon}).addTo(markers);
+        let marker=new L.marker(new L.LatLng(acao.lat, acao.lng), {icon: markerIcon}).addTo(markers);
+        marker.bindPopup("<section>"+
+        "<p>Nome Organização:  "+acao.NomeOrganizacao+"</p>"+
+        "<p>Tipo da ação:  "+acao.nome+"</p>"+
+        "<p>Dia ação:  "+acao.diaAcaoInicio.substring(0,10)+ " às " + acao.diaAcaoInicio.substring(11,16) +"</p>"+
+        "<p>Total de pessoas inscritas/Maximo:  "+acao.pessoasInscritas+"  /  "+acao.maximoPessoas+"</p></section>"+
+        "<button id='btnParticipar' onclick='participar("+acao.acao_id+")'>Participar</button>  <button id='btnMaisInfo' onclick='maisInfoAcao()'>Mais informações</button>");
       }
 
       if (acoes.length == 0) {
@@ -70,4 +78,34 @@ async function procurarAcoes(){
       console.log(err);
     }
   }
+}
+
+function maisInfoAcao(){
+  window.location = "mais_info.html";
+}
+
+async function participar(id) {
+
+  let data = {
+    acao_id: id,
+    user_id: utilizadorID
+  }
+
+try {
+
+    let result = await $.ajax({
+        url: "/api/acoes/addacao",
+        method: "post",
+        data: JSON.stringify(data),
+        contentType: "application/json",
+        dataType: "json"
+    });
+
+    alert("Nova ação adicionada, com sucesso!");
+    window.location = "procurar_acoes.html";
+
+} catch(err) {
+    console.log(err);
+}
+
 }
