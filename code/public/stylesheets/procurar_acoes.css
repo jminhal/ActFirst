@@ -6,7 +6,7 @@ body{
 
 
 header{
-  background-color: #F57C47;
+  background-color: #55BE5F;
   display: flex;
   align-items: center;
 }
@@ -40,7 +40,7 @@ header{
   .searchBox{
     display: flex;
     align-items: center;
-    background-color: #FBF1E5;
+    background-color: #FAF9FF;
     width: 100%;
     height: 150px;
     
@@ -78,7 +78,7 @@ header{
 
 
   .boxCalendario{
-    width: 14%;
+    width: 8.5%;
     margin-right: 2%;
     border: 1px solid grey;
     background-color: white;
@@ -101,10 +101,10 @@ header{
 
   .botaoPesquisar{
     color: white;
-    background-color: #2B8B34;
+    background-color: #55BE5F;
     padding: 10px 24px;
     border-radius: 8px;
-    border: 2px solid #2B8B34;
+    border: 2px solid #55BE5F;
     cursor: pointer;
   }
 

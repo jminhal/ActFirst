@@ -2,12 +2,12 @@ body{
     color: white;
     font-family: 'Nerko One', cursive;
     font-size: 20px;
-    background-color: #FBF1E5;
+    background-color: #FAF9FF;
   }
   
   
   header{
-    background-color: #F57C47;
+    background-color: #55BE5F;
     display: flex;
     align-items: center;
   }

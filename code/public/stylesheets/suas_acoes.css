@@ -6,7 +6,7 @@ body{
 
 
 header{
-  background-color: #F57C47;
+  background-color: #55BE5F;
   display: flex;
   align-items: center;
 }
@@ -38,7 +38,7 @@ header{
 }
   
 .searchBox {
-  background-color: #FBF1E5;
+  background-color: #FAF9FF;
   height: 150px;
   display: flex;
   justify-content: center;
@@ -59,10 +59,10 @@ header{
 
 .botaoPesquisar{
   color: white;
-  background-color: #2B8B34;
+  background-color: #55BE5F;
   padding: 10px 24px;
   border-radius: 8px;
-  border: 2px solid #2B8B34;
+  border: 2px solid #55BE5F;
   cursor: pointer;
   height: min-content;
 }

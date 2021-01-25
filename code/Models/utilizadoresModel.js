@@ -10,6 +10,18 @@ module.exports.getAllUtilizadores = async function() {
         return {status: 500, data: err};
     } 
 }
+
+module.exports.getUtilizador = async function(user_id) {
+    try {
+        let sql = "SELECT * FROM utilizador WHERE user_id = ?";
+        let utilizadores = await pool.query(sql, [ user_id ]);
+        return {status: 200, data: utilizadores[0]};
+    } catch (err) {
+        console.log(err);
+        return {status: 500, data: err};
+    } 
+};
+
 module.exports.login = async function(username) {
     try {
         let sql = "SELECT * FROM utilizador WHERE username = ?";
