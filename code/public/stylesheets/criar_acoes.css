@@ -109,3 +109,9 @@ header{
   justify-content: center;
 
 }
+.boxDireita{
+  padding-left: 10%;
+}
+.boxEsquerda{
+  padding-right: 10%;
+}

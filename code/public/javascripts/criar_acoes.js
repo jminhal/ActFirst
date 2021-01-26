@@ -18,24 +18,34 @@ window.onload = async function () {
 }
 
 
-
 async function criarAcao(){
-    /*if(){
-        VERIFICAR SE ESTA TUDO PREENCHIDO
+    /*
+    let orgNome = document.getElementById("orgNome");
+    let dataInicio = document.getElementById("dataInicio");
+    let horaInicio = document.getElementById("horaInicio");
+    let email = document.getElementById("email");
+    let localizacao = document.getElementById("localizacao");
+    let maxPessoas = document.getElementById("maxPessoas");
+    let acaoTipo = document.getElementById("acaoTipo");
+    let dataFim = document.getElementById("dataFim");
+    let horaFim = document.getElementById("horaFim");
+    let maisInfo = document.getElementById("maisInfo");
+    if(organizacao_id!= "" && lat!= "" && lng!= "" && localizacao!= "" && tipoAcao!= "" && extraInfo!= "" && email!= "" && diaAcaoInicio!= "" && diaAcaFim!= "" && maximoPessoas!= ""){
+        let data = {
+            organizacao_id: orgNome,
+            lat: 0,
+            lng: 0,
+            localizacao: localizacao,
+            tipoAcao: acaoTipo,
+            extraInfo: maisInfo,
+            email: email,
+            diaAcaoInicio: dataInicio+ horaInicio,
+            diaAcaoFim: dataFim+horaFim,
+            maximoPessoas: maxPessoas,
+        }
+        
     }*/
-    let data = {
-        organizacao_id: 1,
-        local: "38.7237927@-9.1421934",
-        tipoAcao: 1,
-        extraInfo: "Roupa adquada",
-        email: "IAde@iade.pt",
-        diaAcaoInicio:"2020-12-30",
-        diaAcaoFim:"2020-12-30",
-        pessoasInscritas:50,
-        localizacao:2
 
-
-    }
 
     try {
 
