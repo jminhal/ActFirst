@@ -19,58 +19,77 @@
 <body>
   <header class= "header">
     <img id="actfirstLogo" src="icons/ActFirst.png" alt="ActFirst Logo">
-      <section class="boxNavAvatar">
-        <div class="titulo">Criar Ações</div>
+    <section class="boxNavAvatar">
+      <div class="titulo">Criar Ação</div>
+      <section class="dropdown">
         <div class="divLogoAvatar">
           <div id="userName"></div>
           <img id="user" src="icons/user.png" alt="Avatar">
         </div>
+        <div class="dropdown-content">
+          <a href="procurar_acoes.html">Procurar ações</a>
+          <a href="suas_acoes.html">As suas ações</a>
+          <a href="#" class="selected">Criar Acão</a>
+          <a href="#" onclick="logout()">Logout</a>
+        </div>
+      </section>
       </section>
   </header> 
     <main class="main">
-      <section id="titulo">Informações Ações:</section>
-      <section>
-        <div id="calendarios">
-          <div class="box">
-            <label>Dia Inicio: </label>
-            <div class="boxCalendario">
-              <input type="date" class="calendario" placeholder ="Seleciona um dia">
-              <img class="calendarioIcon" src="icons/calendario.png" alt="calendario Icon">
+      <p>Informações da ação:</p>
+      <section class="boxs">
+        <section class="boxEsquerda">
+          <section class="checkBoxs">
+            <div>
+              <label>Nome da ação:</label>
+              <input type="text" id="nomeAcao">
             </div>
-          </div><!-- calendariosInicio -->
-          <div class="box">
-            <label>Dia Fim: </label>
-            <div class="boxCalendario">
-              <input type="date" class="calendario"  placeholder ="Seleciona um dia">
-              <img class="calendarioIcon" src="icons/calendario.png" alt="calendario Icon">
+            <div>
+              <label>Data de inicio:</label>
+              <input type="date" id="dataInicio">
             </div>
-          </div><!-- calendariosFIM -->
-        </div><!-- calendarios -->
-
-        <div id="horas">
-          <div class="boxHoras colorPreto">
-            <label>Horas inicio: </label>
-            <input type="time" value="00:00">
-          </div>
-          <div class="boxHoras colorPreto" >
-            <label>Horas de Fim: </label>
-            <input type="time" value="00:00">
-          </div>
-        </div><!-- horas -->
-
-
-        <div class="divsearchBox">
-          <label class="colorPreto">Local da ação: </label>
-          <div class="boxLocal">
-            <select class="local"></select>
-          </div><!-- localAcao -->
-          <label class="colorPreto">Tipo ação: </label>
-          <div class="boxLocal">
-            <select class="local"></select>
-          </div><!-- tipoAcao -->
-        </div>
+            <div>
+              <label>Horas de inicio:</label>
+              <input type="time" id="horaInicio">
+            </div>
+            <div>
+              <label>Email:</label>
+              <input type="email" id="email">
+            </div>
+            <div>
+              <label>Localizacao:</label>
+              <input type="text" id="localizacao">
+            </div>
+            <div>
+              <label>Maximo de pessoas:</label>
+              <input type="number" id="maxPessoas">
+            </div>
+          </section>
+        </section>
+        <section class="boxDireita">
+          <section class="checkBoxs" >
+            <div>
+              <label>Tipo de Ação:</label>
+              <select id="acaoTipo"></select>
+            </div>
+            <div>
+              <label>Data de fim:</label>
+              <input type="date" id="dataFim">
+            </div>
+            <div>
+              <label>Horas de fim:</label>
+              <input type="time" id="horaFim">
+            </div>
+            <div>
+              <label>Mais informações:</label>
+              <input type="text" id="maisInfo">
+            </div>
+          </section>
+        </section>
       </section>
+      <section class="btnCriarAcao">
         <button type="button" class="botaoCriarAcao" onclick="criarAcao()" >Criar Ação</button> 
+      </section>
       </main>
 </body>
 </html>

@@ -1,4 +1,6 @@
 var utilizadorID=2;
+var organizacao=1;
+
 
 window.onload = async function () {
     try {
@@ -8,6 +10,7 @@ window.onload = async function () {
         dataType: "json"
         });
         document.getElementById("userName").innerHTML=user.username;
+      
     } 
     catch(err) {
         console.log(err);

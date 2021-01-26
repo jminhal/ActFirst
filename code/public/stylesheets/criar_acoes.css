@@ -26,11 +26,7 @@ header{
   justify-content: center;
   text-align: center;
 }
-.boxNav a{
-  text-decoration: none;
-  padding: 10px;
-  border-radius: 8px;
-}
+
 .divLogoAvatar{
   display: flex;
   align-items: center;
@@ -42,95 +38,18 @@ header{
 }
 
 
-#titulo{
-    margin-top: 100px;
-    margin-left: 100px;
+.titulo{
+  width: 100%;
+  justify-content: center;
+  text-align: center;
 }
-.searchBox{
-    display: flex;
-    align-items: center;
-    background-color: #FAF9FF;
-    width: 100%;
-    height: 100px;
-  }
 
-.divsearchBox{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
+.btnCriarAcao{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
 
-
-  .boxLocal{
-    width: 10%;
-    margin-right: 2%;
-    border: 1px solid grey;
-    background-color: white;
-    display: flex;
-    align-items: center;
-  }
-  .local{
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    border: none;
-
-  }
-
-
-
-
-  .boxCalendario{
-    margin-right: 2%;
-    border: 1px solid grey;
-    background-color: white;
-    display: flex;
-    align-items: center;
-  }
-  .calendario{
-    margin-right: 10px;
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    border: none;
-  }
-  .calendarioIcon{
-    width: 40px;
-    height: 30px;
-  }  
-
-
-  #calendarios{
-      display: flex;
-      justify-content: center;
-      padding: 20px;
-  }
-
-  #horas{
-      display: flex;
-      justify-content: center;
-      padding: 20px;
-  }
-
-  .boxHoras{
-      margin-right: 2%;
-      display: flex;
-      align-items: center;
-  }
-
-
-  .main{
-      color: black;
-      display: flex;
-      
-  }
-
-  .box{
-      justify-content: center;
-      align-items: center;
-      display: flex;
-      width: 15%;
-  }
   .botaoCriarAcao{
     color: white;
     background-color: #55BE5F;
@@ -140,3 +59,53 @@ header{
     cursor: pointer;
     
   }
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 154px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+  
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+  
+.dropdown-content a:hover {background-color: #f1f1f1}
+  
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+  
+.selected {
+  background-color: #CECECE;
+}
+
+
+.main{
+  color: black;
+}
+
+
+
+.checkBoxs {
+
+  display: flex;
+  flex-direction: column;
+  margin-right: 15px;
+}
+
+.checkBoxs div {
+  margin-bottom: 10px;
+}
+.boxs{
+  margin: 5%;
+  display: flex;
+  justify-content: center;
+
+}

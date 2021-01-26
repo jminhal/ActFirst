@@ -67,7 +67,7 @@ header{
   height: min-content;
 }
 
-#map { height: 735px; }
+#map { height: 660px; }
 
 .dropdown-content {
   display: none;
@@ -92,4 +92,22 @@ header{
 
 .selected {
   background-color: #CECECE;
+}
+
+.btnApagarAcao, .btnAbandonar{
+  color: white;
+  background-color: #F57C47;
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: 2px solid #F57C47;
+  cursor: pointer;
+}
+.btnMaisInfo{
+  margin-left: 20px;
+  color: white;
+  background-color: #55BE5F;
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: 2px solid #55BE5F;
+  cursor: pointer;
 }

@@ -1,6 +1,6 @@
 var map,markers;
 var utilizadorID=2;
-
+var organizacao=1;
 
 window.onload = async function () {
   try {
@@ -10,6 +10,21 @@ window.onload = async function () {
       dataType: "json"
     });
     document.getElementById("userName").innerHTML=user.username;
+    if(organizacao==0){
+      let userDropBox= "<a href='#' class='selected'>Procurar ações</a>"+
+      "<a href='suas_acoes.html' >As suas ações</a>"+
+      "<a href='#' onclick='logout()'>Logout</a>";
+      document.getElementById("userDropBox").innerHTML = userDropBox;
+
+    }
+    if(organizacao==1){
+      let userDropBox= "<a href='#' class='selected'>Procurar ações</a>"+
+      "<a href='suas_acoes.html' >As suas ações</a>"+
+      "<a href='criar_acoes.html'>Criar Acão</a>"+
+      "<a href='#' onclick='logout()'>Logout</a>";
+      document.getElementById("userDropBox").innerHTML = userDropBox;
+
+    }
   } 
   catch(err) {
     console.log(err);
