@@ -1,6 +1,8 @@
-var utilizadorID=2;
-var organizacao=1;
 
+let user = JSON.parse(sessionStorage.getItem("user"));
+
+var utilizadorID= user.user_id;
+var organizacao= user.organizacao;
 
 window.onload = async function () {
     try {

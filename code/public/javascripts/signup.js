@@ -1,20 +1,25 @@
-async function login() {
+
+async function signUp() {
 
     let username = document.getElementById("username").value;
 
     if (username != "") { //Verificar se o input do username não está vazio
 
+        let data = {
+            username: username
+        }
+
         try {
             
             let utilizador = await $.ajax({
-                url: "/api/utilizadores?username="+username,
-                method: "get",
+                url: "/api/utilizadores",
+                method: "post",
+                data: JSON.stringify(data),
+                contentType: "application/json",
                 dataType: "json"
             });
 
-
-            sessionStorage.setItem("user", JSON.stringify(utilizador));
-            window.location = "procurar_acoes.html";
+            window.location = "login.html";
 
         } catch (err) {
             console.log(err);
