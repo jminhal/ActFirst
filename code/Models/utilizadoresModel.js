@@ -1,60 +1,62 @@
 var pool = require("./connection");
 
-module.exports.getAllUtilizadores = async function() { 
-    try {
-        const sql = "SELECT * FROM utilizador";
-        const utilizadores = await pool.query(sql);
-        return {status: 200, data: utilizadores};
-    } catch (err) {
-        console.log(err);
-        return {status: 500, data: err};
-    } 
-}
 
-module.exports.getUtilizador = async function(user_id) {
+module.exports.getUser = async function(id) {
     try {
+
         let sql = "SELECT * FROM utilizador WHERE user_id = ?";
-        let utilizadores = await pool.query(sql, [ user_id ]);
-        return {status: 200, data: utilizadores[0]};
+        let utilizador = await pool.query(sql, [ id ]);
+
+        if (utilizador.length > 0) {
+            return {status: 200, data: utilizador[0]};
+        }
+        else {
+            return {status: 404, data: {msg: "This username does not exist"}};
+        }
+
     } catch (err) {
         console.log(err);
         return {status: 500, data: err};
     } 
 };
 
-module.exports.login = async function(username) {
+module.exports.checkLogin = async function(obj) {
     try {
-        let sql = "SELECT * FROM utilizador WHERE username = ?";
-        let utilizadores = await pool.query(sql,[username] );
-        if (utilizadores.length > 0)
-            return {status:200, data: utilizadores[0]};
-        else return {status:401, data: {msg: "Incorrect name"}};
-    } catch(err) {
-        console.log(err);
-        return {status:500, data: {msg: "Server Problems. Try again later", err:err}};
-    }
-}
 
-module.exports.getUtilizador = async function(user_id) {
-    try {
-        let sql = "SELECT * FROM utilizador WHERE user_id = ?";
-        let utilizadores = await pool.query(sql, [ user_id ]);
-        return {status: 200, data: utilizadores[0]};
+        let sql = "SELECT * FROM utilizador WHERE username = ?";
+        let utilizador = await pool.query(sql, [ obj.username ]);
+
+        if (utilizador.length > 0) {
+            return {status: 200, data: utilizador[0]};
+        }
+        else {
+            return {status: 404, data: {msg: "This username does not exist"}};
+        }
+
     } catch (err) {
         console.log(err);
         return {status: 500, data: err};
     } 
-}
+};
 
-module.create = async (module) => {
+module.exports.createUser = async function(user) {
     try {
-        module.project = 1;
-        let res = await database.query('INSERT INTO Modules SET?', module);
-        return {id: res.insertId, ...module};
-    
-    }
-    catch(err) {
-        console.log('An error as occured while trying to INSERT INTO Modules. \n Duumping Stack, \n', err.stack);
-        return err.message;
-    }
-}
+
+        let sql = "SELECT * FROM utilizador WHERE username = ?";
+        let utilizador = await pool.query(sql, [ user.username ]);
+
+        if (utilizador.length > 0) {
+            return {status: 404, data: {msg: "username already exists!"}};
+        }
+        else {
+            sql = "INSERT INTO utilizador(username) VALUES (?)";
+            utilizador = await pool.query(sql, [ user.username ]);
+            return {status: 200, data: utilizador};
+        }
+
+    } catch (err) {
+        console.log(err);
+        return {status: 500, data: err};
+    } 
+};
+
