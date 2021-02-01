@@ -1,6 +1,6 @@
 var pool = require("./connection");
 
-
+// vai buscar a informação de um certo utilizador
 module.exports.getUser = async function(id) {
     try {
 
@@ -19,7 +19,7 @@ module.exports.getUser = async function(id) {
         return {status: 500, data: err};
     } 
 };
-
+// vai verificar se o utilizador existe e fazer o login
 module.exports.checkLogin = async function(obj) {
     try {
 
@@ -38,7 +38,7 @@ module.exports.checkLogin = async function(obj) {
         return {status: 500, data: err};
     } 
 };
-
+// vai verificar se o utlizador existe e faze o registo dele
 module.exports.createUser = async function(user) {
     try {
 
@@ -60,3 +60,17 @@ module.exports.createUser = async function(user) {
     } 
 };
 
+//vai remover um certo utilizador de uma certa ação
+module.exports.abandonarAcao = async function(obj) {
+    try {
+
+        let sql = "DELETE FROM acaoutilizador WHERE user_id = ? AND acao_id = ?";
+        let acao = await pool.query(sql, [ obj.user_id, obj.acao_id ]);
+
+        return {status: 200, data: acao};
+
+    } catch (err) {
+        console.log(err);
+        return {status: 500, data: err};
+    } 
+};

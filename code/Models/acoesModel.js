@@ -1,20 +1,5 @@
 var pool = require("./connection");
 
-//criar acao
-module.exports.criarAcao = async function(acao) {
-    try {
-
-        let sql = "INSERT INTO acao(organizacao_id, lat, lng, localizacao, tipoAcao, extraInfo, diaAcaoInicio, diaAcaoFim, maximoPessoas)"
-        + "VALUES (?,?,?,?,?,?,?,?,?)";
-        let result = await pool.query(sql, [ acao.organizacao_id, acao.latitude, acao.longitude, acao.localizacao, acao.tipoAcao, acao.extraInfo, acao.diaAcaoInicio, acao.diaAcaoFim, acao.maximoPessoas ]);
-        return {status: 200, data: result};
-        
-    } catch (err) {
-        console.log(err);
-        return {status: 500, data: err};
-    } 
-}; 
-
 //acoes que o utilizador podera participar
 module.exports.getAcoesParticipar = async function(obj) {
     try {
@@ -59,11 +44,11 @@ module.exports.getAcoesParticipar = async function(obj) {
 };
 
 
-//acoes que o utilizador participou
+//acoes que o utilizador participou (AP)
 module.exports.getAcoesParticipadas = async function(obj) {
     try {
 
-        let sql = "SELECT A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, A.extraInfo, U.email, A.diaAcaoInicio, A.diaAcaoFim, A.maximoPessoas "+
+        let sql = "SELECT A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, A.extraInfo, U.email, A.diaAcaoInicio, A.diaAcaoFim, A.maximoPessoas, TA.nome "+
         "FROM acao A, acaoutilizador AU , utilizador U, tipoacao TA "+
         "WHERE  A.acao_id=AU.acao_id AND U.user_id=A.organizacao_id AND TA.tipoAcao_id=A.tipoAcao AND CURDATE() > DATE(A.diaAcaoFim) AND AU.user_id = ?";
 
@@ -75,13 +60,13 @@ module.exports.getAcoesParticipadas = async function(obj) {
     } 
 }; 
 
-//acoes que o utilizador se encontrar a participar
+//acoes que o utilizador se encontrar a participar(APP)
 module.exports.getAcoesParticipacaoPresente = async function(obj) {
     try {
 
-        let sql = "SELECT A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, A.extraInfo, U.email, A.diaAcaoInicio, A.diaAcaoFim, A.maximoPessoas "+
+        let sql = "SELECT A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, A.extraInfo, U.email, A.diaAcaoInicio, A.diaAcaoFim, A.maximoPessoas, TA.nome "+
         "FROM acao A, acaoutilizador AU , utilizador U, tipoacao TA "+
-        "WHERE AU.acao_id = A.acao_id AND U.user_id = A.organizacao_id AND TA.tipoAcao_id = A.tipoAcao AND CURDATE() BETWEEN DATE(A.diaAcaoInicio) AND DATE(A.diaAcaoFim) OR A.diaAcaoInicio BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 7 DAY) AND AU.user_id = ? GROUP BY A.acao_id";
+        "WHERE AU.acao_id = A.acao_id AND U.user_id = A.organizacao_id AND TA.tipoAcao_id = A.tipoAcao AND (CURDATE() BETWEEN DATE(A.diaAcaoInicio) AND DATE(A.diaAcaoFim) OR A.diaAcaoInicio BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 7 DAY)) AND AU.user_id = ? GROUP BY A.acao_id";
 
 
         let result = await pool.query(sql, [obj.userID]);
@@ -92,11 +77,11 @@ module.exports.getAcoesParticipacaoPresente = async function(obj) {
     } 
 }; 
 
-//acoes que o utilizador se encontrar a participar no futuro
+//acoes que o utilizador se encontrar a participar no futuro (AF)
 module.exports.getAcoesFuturas = async function(obj) {
     try {
 
-        let sql = "SELECT A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, A.extraInfo, U.email, A.diaAcaoInicio, A.diaAcaoFim, A.maximoPessoas "+
+        let sql = "SELECT A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, A.extraInfo, U.email, A.diaAcaoInicio, A.diaAcaoFim, A.maximoPessoas, TA.nome "+
         "FROM acao A, acaoutilizador AU , utilizador U, tipoacao TA "+
         "WHERE AU.acao_id = A.acao_id AND U.user_id = A.organizacao_id AND TA.tipoAcao_id = A.tipoAcao AND A.diaAcaoInicio > DATE_ADD(CURDATE(), INTERVAL 7 DAY) GROUP BY A.acao_id";
 
@@ -123,7 +108,7 @@ module.exports.addAcaoUtilizador = async function(obj) {
     } 
 }; 
 
-//tipo de acoes
+// vai buscar os tipos de acoes
 module.exports.getTipoAcoes = async function() {
     try {
 
@@ -136,3 +121,44 @@ module.exports.getTipoAcoes = async function() {
         return {status: 500, data: err};
     } 
 }; 
+
+
+//criar acao
+module.exports.criarAcao = async function(acao) {
+    try {
+
+        let sql = "INSERT INTO acao(organizacao_id, lat, lng, localizacao, tipoAcao, extraInfo, diaAcaoInicio, diaAcaoFim, maximoPessoas)"
+        + "VALUES (?,?,?,?,?,?,?,?,?)";
+        let result = await pool.query(sql, [ acao.organizacao_id, acao.latitude, acao.longitude, acao.localizacao, acao.tipoAcao, acao.extraInfo, acao.diaAcaoInicio, acao.diaAcaoFim, acao.maximoPessoas ]);
+        
+        let id = result.insertId;
+
+        sql = "INSERT INTO acaoutilizador(acao_id, user_id) VALUES (?,?)";
+        result = await pool.query(sql, [ id, acao.organizacao_id ]);
+
+        return {status: 200, data: result};
+        
+    } catch (err) {
+        console.log(err);
+        return {status: 500, data: err};
+    } 
+}; 
+
+
+//quando uma organização apagar uma ação
+module.exports.apagarAcao = async function(obj) {
+    try {
+
+        let sql = "DELETE FROM acaoutilizador WHERE acao_id = ?";
+        let acao = await pool.query(sql, [ obj.acao_id ]);
+
+        sql = "DELETE FROM acao WHERE organizacao_id = ? AND acao_id = ?";
+        acao = await pool.query(sql, [ obj.organizacao_id, obj.acao_id ]);
+
+        return {status: 200, data: acao};
+
+    } catch (err) {
+        console.log(err);
+        return {status: 500, data: err};
+    } 
+};

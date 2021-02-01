@@ -114,7 +114,7 @@ async function suasAcoesFiltrar(){
           "<p>Tipo da ação:  "+acao.nome+"</p>"+
           "<p>Dia ação:  "+acao.diaAcaoInicio.substring(0,10)+ " às " + acao.diaAcaoInicio.substring(11,16) +"</p>"+
           "<p>Total de pessoas inscritas/Maximo:  "+acao.pessoasInscritas+"  /  "+acao.maximoPessoas+"</p></section>"+
-          "<button class='btnApagarAcao' onclick='ApagarAcao("+acao.acao_id+")'>Apagar Ação</button>  <button class='btnMaisInfo' onclick='maisInfoAcao()'>Mais informações</button>");  
+          "<button class='btnApagarAcao' onclick='apagarAcao("+acao.acao_id+")'>Apagar Ação</button>  <button class='btnMaisInfo' onclick='maisInfoAcao()'>Mais informações</button>");  
         }
         else{
           let marker=new L.marker(new L.LatLng(acao.lat, acao.lng), {icon: markerIcon}).addTo(markers);
@@ -159,7 +159,7 @@ async function suasAcoesFiltrar(){
           "<p>Tipo da ação:  "+acao.nome+"</p>"+
           "<p>Dia ação:  "+acao.diaAcaoInicio.substring(0,10)+ " às " + acao.diaAcaoInicio.substring(11,16) +"</p>"+
           "<p>Total de pessoas inscritas/Maximo:  "+acao.pessoasInscritas+"  /  "+acao.maximoPessoas+"</p></section>"+
-          "<button class='btnApagarAcao' onclick='ApagarAcao("+acao.acao_id+")'>Apagar Ação</button>  <button class='btnMaisInfo' onclick='maisInfoAcao()'>Mais informações</button>");  
+          "<button class='btnApagarAcao' onclick='apagarAcao("+acao.acao_id+")'>Apagar Ação</button>  <button class='btnMaisInfo' onclick='maisInfoAcao()'>Mais informações</button>");  
         }
         else{
           let marker=new L.marker(new L.LatLng(acao.lat, acao.lng), {icon: markerIcon}).addTo(markers);
@@ -181,4 +181,40 @@ async function suasAcoesFiltrar(){
     }
 
   }
+}
+
+async function abandonar(acao_id) {
+
+  try {
+    let acao = await $.ajax({
+        url: "/api/utilizadores?acao_id="+acao_id+"&user_id="+utilizadorID,
+        method: "delete",
+        dataType: "json"
+    });
+
+    alert("Ação abandonada com sucesso!");
+    window.location = "suas_acoes.html";
+  
+  } catch(err) {
+      console.log(err);
+  }
+
+}
+
+async function apagarAcao(acao_id) {
+
+  try {
+    let acao = await $.ajax({
+        url: "/api/acoes?acao_id="+acao_id+"&organizacao_id="+utilizadorID,
+        method: "delete",
+        dataType: "json"
+    });
+
+    alert("Ação apagada com sucesso!");
+    window.location = "suas_acoes.html";
+  
+  } catch(err) {
+      console.log(err);
+  }
+
 }
