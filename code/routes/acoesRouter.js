@@ -39,4 +39,9 @@ router.get('/futuras', async function(req, res, next) {
     res.status(result.status).send(result.data);
 });
 
+router.get('/tipoacoes', async function(req, res, next) {
+    let result = await acoesModel.getTipoAcoes();
+    res.status(result.status).send(result.data);
+});
+
 module.exports = router;

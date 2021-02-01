@@ -4,10 +4,11 @@ var pool = require("./connection");
 module.exports.criarAcao = async function(acao) {
     try {
 
-        let sql = "INSERT INTO acao( organizacao_id, local, tipoAcao, extraInfo,email,diaAcaoInicio,diaAcaoFim,pessoasInscritas,localizacao) "
+        let sql = "INSERT INTO acao(organizacao_id, lat, lng, localizacao, tipoAcao, extraInfo, diaAcaoInicio, diaAcaoFim, maximoPessoas)"
         + "VALUES (?,?,?,?,?,?,?,?,?)";
-        let result = await pool.query(sql, [ acao.organizacao_id,acao.local,acao.tipoAcao,acao.extraInfo,acao.email,acao.diaAcaoInicio,acao.diaAcaoFim,acao.pessoasInscritas,acao.localizacao ]);
+        let result = await pool.query(sql, [ acao.organizacao_id, acao.latitude, acao.longitude, acao.localizacao, acao.tipoAcao, acao.extraInfo, acao.diaAcaoInicio, acao.diaAcaoFim, acao.maximoPessoas ]);
         return {status: 200, data: result};
+        
     } catch (err) {
         console.log(err);
         return {status: 500, data: err};
@@ -115,6 +116,20 @@ module.exports.addAcaoUtilizador = async function(obj) {
         let sql = "INSERT INTO acaoutilizador (acao_id, user_id) VALUES(?,?)";
 
         let result = await pool.query(sql, [obj.acao_id, obj.user_id]);
+        return {status: 200, data: result};
+    } catch (err) {
+        console.log(err);
+        return {status: 500, data: err};
+    } 
+}; 
+
+//tipo de acoes
+module.exports.getTipoAcoes = async function() {
+    try {
+
+        let sql = "SELECT * FROM tipoacao";
+        let result = await pool.query(sql);
+
         return {status: 200, data: result};
     } catch (err) {
         console.log(err);

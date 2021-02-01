@@ -52,7 +52,8 @@ function mapSetup(position){
 }
 // vai buscar a  nossa localizacao
 function getLocalizacao(){
-  if(navigator.geolocation){
+  
+  if(navigator.geolocation){  
     navigator.geolocation.getCurrentPosition(mapSetup);
   }
 }
