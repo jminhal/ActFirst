@@ -38,7 +38,7 @@ module.exports.getAcoesParticipar = async function(obj) {
         }
         
 
-        let sql = "SELECT A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, TA.nome, A.extraInfo, A.email, A.diaAcaoInicio, A.diaAcaoFim, A.pessoasInscritas, A.maximoPessoas "+
+        let sql = "SELECT A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, TA.nome, A.extraInfo, U.email, A.diaAcaoInicio, A.diaAcaoFim, A.maximoPessoas "+
         "FROM acao A, tipoacao TA, utilizador U, acaoutilizador AU "+
         "WHERE "+
         "NOT EXISTS "+
@@ -63,7 +63,7 @@ module.exports.getAcoesParticipar = async function(obj) {
 module.exports.getAcoesParticipadas = async function(obj) {
     try {
 
-        let sql = "SELECT A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, A.extraInfo, A.email, A.diaAcaoInicio, A.diaAcaoFim, A.pessoasInscritas, A.maximoPessoas "+
+        let sql = "SELECT A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, A.extraInfo, U.email, A.diaAcaoInicio, A.diaAcaoFim, A.maximoPessoas "+
         "FROM acao A, acaoutilizador AU , utilizador U, tipoacao TA "+
         "WHERE  A.acao_id=AU.acao_id AND U.user_id=A.organizacao_id AND TA.tipoAcao_id=A.tipoAcao AND CURDATE() > DATE(A.diaAcaoFim) AND AU.user_id = ?";
 
@@ -79,7 +79,7 @@ module.exports.getAcoesParticipadas = async function(obj) {
 module.exports.getAcoesParticipacaoPresente = async function(obj) {
     try {
 
-        let sql = "SELECT A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, A.extraInfo, A.email, A.diaAcaoInicio, A.diaAcaoFim, A.pessoasInscritas, A.maximoPessoas "+
+        let sql = "SELECT A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, A.extraInfo, U.email, A.diaAcaoInicio, A.diaAcaoFim, A.maximoPessoas "+
         "FROM acao A, acaoutilizador AU , utilizador U, tipoacao TA "+
         "WHERE AU.acao_id = A.acao_id AND U.user_id = A.organizacao_id AND TA.tipoAcao_id = A.tipoAcao AND CURDATE() BETWEEN DATE(A.diaAcaoInicio) AND DATE(A.diaAcaoFim) OR A.diaAcaoInicio BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 7 DAY) AND AU.user_id = ? GROUP BY A.acao_id";
 
@@ -96,7 +96,7 @@ module.exports.getAcoesParticipacaoPresente = async function(obj) {
 module.exports.getAcoesFuturas = async function(obj) {
     try {
 
-        let sql = "SELECT A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, A.extraInfo, A.email, A.diaAcaoInicio, A.diaAcaoFim, A.pessoasInscritas, A.maximoPessoas "+
+        let sql = "SELECT A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, A.extraInfo, U.email, A.diaAcaoInicio, A.diaAcaoFim, A.maximoPessoas "+
         "FROM acao A, acaoutilizador AU , utilizador U, tipoacao TA "+
         "WHERE AU.acao_id = A.acao_id AND U.user_id = A.organizacao_id AND TA.tipoAcao_id = A.tipoAcao AND A.diaAcaoInicio > DATE_ADD(CURDATE(), INTERVAL 7 DAY) GROUP BY A.acao_id";
 
