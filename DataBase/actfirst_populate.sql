@@ -23,8 +23,10 @@ insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,diaAcaoIn
 insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,diaAcaoInicio,diaAcaoFim,maximoPessoas) 
 			values(11,38.7183333,-9.1507342,'Lisboa',3,'Levar roupa adquada','2020-12-30 14:00:00','2021-01-15 19:00:00',80);
  
-
  
+insert into acaoUtilizador (acao_id,user_id) values(1,4);
+insert into acaoUtilizador (acao_id,user_id) values(2,12);
+insert into acaoUtilizador (acao_id,user_id) values(3,11);
 insert into acaoUtilizador (acao_id,user_id) values(1,2);
 insert into acaoUtilizador (acao_id,user_id) values(2,2);
 insert into acaoUtilizador (acao_id,user_id) values(1,3);
