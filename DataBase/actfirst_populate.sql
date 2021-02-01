@@ -1,27 +1,27 @@
-insert into utilizador (username, organizacao) values ('Banco Alimentar Contra Fome',true);
-insert into utilizador (username, organizacao) values ('Jorge',false);
-insert into utilizador (username, organizacao) values ('Marta',false);
-insert into utilizador (username, organizacao) values ('Abrigo Seguro',true);
-insert into utilizador (username, organizacao) values ('Associação Integrar',true);
-insert into utilizador (username, organizacao) values ('Miguel',false);
-insert into utilizador (username, organizacao) values ('Brandao',false);
-insert into utilizador (username, organizacao) values ('Pedro',false);
-insert into utilizador (username, organizacao) values ('Banco Local de Voluntariado',true);
-insert into utilizador (username, organizacao) values ('Centro de Promoção Social',true);
-insert into utilizador (username, organizacao) values ('Florinhas do Vouga',true);
-insert into utilizador (username, organizacao) values ('Cruz Vermelha Portuguesa',true);
+insert into utilizador (username, email, organizacao, moderador) values ('Banco Alimentar Contra Fome','geral@BACF.pt',true,false);
+insert into utilizador (username, email, organizacao, moderador) values ('Jorge','jorge@gmail.com',false,true);
+insert into utilizador (username, email, organizacao, moderador) values ('Marta','marta@gmail.com',false,true);
+insert into utilizador (username, email, organizacao, moderador) values ('Abrigo Seguro','geral@AS.pt',true,false);
+insert into utilizador (username, email, organizacao, moderador) values ('Associação Integrar','geral@AI.pt',true,false);
+insert into utilizador (username, email, organizacao, moderador) values ('Miguel','miguel@gmail.com',false,false);
+insert into utilizador (username, email, organizacao, moderador) values ('Brandao','brandao@gmai.com',false,false);
+insert into utilizador (username, email, organizacao, moderador) values ('Pedro','pedro@gmail.com',false,false);
+insert into utilizador (username, email, organizacao, moderador) values ('Banco Local de Voluntariado','geral@BLV.pt',true,false);
+insert into utilizador (username, email, organizacao, moderador) values ('Centro de Promoção Social','geral@CPS.pt',true,false);
+insert into utilizador (username, email, organizacao, moderador) values ('Florinhas do Vouga','geral@FV.pt',true,false);
+insert into utilizador (username, email, organizacao, moderador) values ('Cruz Vermelha Portuguesa','geral@CVP.pt',true,false);
 
 insert into tipoAcao (nome) values('Recolha de alimentos');
 insert into tipoAcao (nome) values('Ajuda na organização');
 insert into tipoAcao (nome) values('Limpar Jardim');
 
  
-insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,email,diaAcaoInicio,diaAcaoFim,pessoasInscritas,maximoPessoas) 
-			values(4,38.7237927,-9.1421934,'Lisboa',1,'Levar roupa adquada','AbrigoSeguro@IADE.pt','2020-12-12 15:00:00','2020-12-30 16:30:00',0,20);
-insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,email,diaAcaoInicio,diaAcaoFim,pessoasInscritas,maximoPessoas) 
-			values(12,38.728244,-9.139271,'Lisboa',2,'Levar roupa adquada','CruzVermelha@IADE.pt','2020-12-15 13:00:00','2020-12-30 15:00:00',0,30);
-insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,email,diaAcaoInicio,diaAcaoFim,pessoasInscritas,maximoPessoas) 
-			values(11,38.7183333,-9.1507342,'Lisboa',3,'Levar roupa adquada','FlorinhasVouga@IADE.pt','2020-12-30 14:00:00','2021-01-15 19:00:00',0,80);
+insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,diaAcaoInicio,diaAcaoFim,maximoPessoas) 
+			values(4,38.7237927,-9.1421934,'Lisboa',1,'Levar roupa adquada','2020-12-12 15:00:00','2020-12-30 16:30:00',20);
+insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,diaAcaoInicio,diaAcaoFim,maximoPessoas) 
+			values(12,38.728244,-9.139271,'Lisboa',2,'Levar roupa adquada','2020-12-15 13:00:00','2020-12-30 15:00:00',30);
+insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,diaAcaoInicio,diaAcaoFim,maximoPessoas) 
+			values(11,38.7183333,-9.1507342,'Lisboa',3,'Levar roupa adquada','2020-12-30 14:00:00','2021-01-15 19:00:00',80);
  
 
  
