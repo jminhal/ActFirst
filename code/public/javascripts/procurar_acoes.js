@@ -1,7 +1,7 @@
 var map,markers;
 
 let user = JSON.parse(sessionStorage.getItem("user"));
-
+console.log(user)
 var utilizadorID= user.user_id;
 var organizacao= user.organizacao;
 
@@ -85,7 +85,7 @@ async function procurarAcoes(){
         "<p>Nome Organização:  "+acao.NomeOrganizacao+"</p>"+
         "<p>Tipo da ação:  "+acao.nome+"</p>"+
         "<p>Dia ação:  "+acao.diaAcaoInicio.substring(0,10)+ " às " + acao.diaAcaoInicio.substring(11,16) +"</p>"+
-        "<p>Total de pessoas inscritas/Maximo:  "+acao.pessoasInscritas+"  /  "+acao.maximoPessoas+"</p></section>"+
+        "<p>Total de pessoas inscritas/Maximo:  "+acao.numeroInscritos+"  /  "+acao.maximoPessoas+"</p></section>"+
         "<button id='btnParticipar' onclick='participar("+acao.acao_id+")'>Participar</button>  <button id='btnMaisInfo' onclick='maisInfoAcao()'>Mais informações</button>");
       }
 
@@ -102,7 +102,10 @@ async function procurarAcoes(){
 function maisInfoAcao(){
   window.location = "mais_info.html";
 }
-
+function logout(){
+  sessionStorage.clear();
+  window.location = "login.html";
+}
 async function participar(id) {
 
   let data = {

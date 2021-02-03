@@ -1,5 +1,9 @@
 <html>
   <head>
+
+    <!--Letter font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="stylesheet" href="stylesheets/login.css">
     <link rel="stylesheet" href="stylesheets/signup.css">
@@ -29,8 +33,11 @@
       <section class="name">
         <div class="grid-container">
           <div>
-            <div class="grid-item"><h3> Name: <input type="text" id="username"> </h3>
-              <h2 id="err"></h2></div>
+            <div class="grid-item">
+              <h3> Name: <input type="text" id="username"> </h3>
+              <h3> Email: <input type="email" id="email"> </h3>
+              <h2 id="err"></h2>
+            </div>
           </div>
           <div class="grid-item">
             <input type="button" value="Sign Up" id=signup onclick="signUp()"> 
@@ -38,7 +45,7 @@
         </div>
       </section>
       <section>
-        <div class="grid-item"><img id="ajudar" src="imagens/ajudar.jpg" alt="ajudar"></div>
+        <div class="grid-item"><img id="ajudar" src="imagens/plantingtree.png" alt="ajudar"></div>
       </section>
     </main>  
   </body>
@@ -52,5 +59,4 @@
     
       
     </html>
-    
     

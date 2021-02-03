@@ -40,10 +40,11 @@
 }
 
 
-#username {
+#username,#email {
     border-style: solid;
     border-color: black;
     border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
     font-size: 20px;
     text-align: left;
     color: black; 

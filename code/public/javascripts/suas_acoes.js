@@ -77,8 +77,8 @@ async function suasAcoesFiltrar(){
           "<p>Nome Organização:  "+acao.NomeOrganizacao+"</p>"+
           "<p>Tipo da ação:  "+acao.nome+"</p>"+
           "<p>Dia ação:  "+acao.diaAcaoInicio.substring(0,10)+ " às " + acao.diaAcaoInicio.substring(11,16) +"</p>"+
-          "<p>Total de pessoas inscritas/Maximo:  "+acao.pessoasInscritas+"  /  "+acao.maximoPessoas+"</p></section>"+
-          "<button class='btnMaisInfo' onclick='maisInfoAcao()'>Mais informações</button>");
+          "<p>Total de pessoas inscritas/Maximo:  "+acao.numeroInscritos+"  /  "+acao.maximoPessoas+"</p></section>"+
+          "<button class='btnMaisInfo' onclick='maisInfoAcao("+acao.acao_id+")'>Mais informações</button>");
        }
   
         if (acoes.length == 0) {
@@ -113,8 +113,8 @@ async function suasAcoesFiltrar(){
           "<p>Nome Organização:  "+acao.NomeOrganizacao+"</p>"+
           "<p>Tipo da ação:  "+acao.nome+"</p>"+
           "<p>Dia ação:  "+acao.diaAcaoInicio.substring(0,10)+ " às " + acao.diaAcaoInicio.substring(11,16) +"</p>"+
-          "<p>Total de pessoas inscritas/Maximo:  "+acao.pessoasInscritas+"  /  "+acao.maximoPessoas+"</p></section>"+
-          "<button class='btnApagarAcao' onclick='apagarAcao("+acao.acao_id+")'>Apagar Ação</button>  <button class='btnMaisInfo' onclick='maisInfoAcao()'>Mais informações</button>");  
+          "<p>Total de pessoas inscritas/Maximo:  "+acao.numeroInscritos+"  /  "+acao.maximoPessoas+"</p></section>"+
+          "<button class='btnApagarAcao' onclick='apagarAcao("+acao.acao_id+")'>Apagar Ação</button>  <button class='btnMaisInfo' onclick='maisInfoAcao("+acao.acao_id+")'>Mais informações</button>");  
         }
         else{
           let marker=new L.marker(new L.LatLng(acao.lat, acao.lng), {icon: markerIcon}).addTo(markers);
@@ -123,7 +123,7 @@ async function suasAcoesFiltrar(){
           "<p>Tipo da ação:  "+acao.nome+"</p>"+
           "<p>Dia ação:  "+acao.diaAcaoInicio.substring(0,10)+ " às " + acao.diaAcaoInicio.substring(11,16) +"</p>"+
           "<p>Total de pessoas inscritas/Maximo:  "+acao.pessoasInscritas+"  /  "+acao.maximoPessoas+"</p></section>"+
-          "<button class='btnAbandonar' onclick='abandonar("+acao.acao_id+")'>Abandonar</button>  <button class='btnMaisInfo' onclick='maisInfoAcao()'>Mais informações</button>");
+          "<button class='btnAbandonar' onclick='abandonar("+acao.acao_id+")'>Abandonar</button>  <button class='btnMaisInfo' onclick='maisInfoAcao("+acao.acao_id+")'>Mais informações</button>");
         }
       }
 
@@ -158,8 +158,8 @@ async function suasAcoesFiltrar(){
           "<p>Nome Organização:  "+acao.NomeOrganizacao+"</p>"+
           "<p>Tipo da ação:  "+acao.nome+"</p>"+
           "<p>Dia ação:  "+acao.diaAcaoInicio.substring(0,10)+ " às " + acao.diaAcaoInicio.substring(11,16) +"</p>"+
-          "<p>Total de pessoas inscritas/Maximo:  "+acao.pessoasInscritas+"  /  "+acao.maximoPessoas+"</p></section>"+
-          "<button class='btnApagarAcao' onclick='apagarAcao("+acao.acao_id+")'>Apagar Ação</button>  <button class='btnMaisInfo' onclick='maisInfoAcao()'>Mais informações</button>");  
+          "<p>Total de pessoas inscritas/Maximo:  "+acao.numeroInscritos+"  /  "+acao.maximoPessoas+"</p></section>"+
+          "<button class='btnApagarAcao' onclick='apagarAcao("+acao.acao_id+")'>Apagar Ação</button>  <button class='btnMaisInfo' onclick='maisInfoAcao("+acao.acao_id+")'>Mais informações</button>");  
         }
         else{
           let marker=new L.marker(new L.LatLng(acao.lat, acao.lng), {icon: markerIcon}).addTo(markers);
@@ -167,8 +167,8 @@ async function suasAcoesFiltrar(){
           "<p>Nome Organização:  "+acao.NomeOrganizacao+"</p>"+
           "<p>Tipo da ação:  "+acao.nome+"</p>"+
           "<p>Dia ação:  "+acao.diaAcaoInicio.substring(0,10)+ " às " + acao.diaAcaoInicio.substring(11,16) +"</p>"+
-          "<p>Total de pessoas inscritas/Maximo:  "+acao.pessoasInscritas+"  /  "+acao.maximoPessoas+"</p></section>"+
-          "<button class='btnAbandonar' onclick='abandonar("+acao.acao_id+")'>Abandonar</button>  <button class='btnMaisInfo' onclick='maisInfoAcao()'>Mais informações</button>");
+          "<p>Total de pessoas inscritas/Maximo:  "+acao.numeroInscritos+"  /  "+acao.maximoPessoas+"</p></section>"+
+          "<button class='btnAbandonar' onclick='abandonar("+acao.acao_id+")'>Abandonar</button>  <button class='btnMaisInfo' onclick='maisInfoAcao("+acao.acao_id+")'>Mais informações</button>");
         }
       }
 
@@ -216,5 +216,16 @@ async function apagarAcao(acao_id) {
   } catch(err) {
       console.log(err);
   }
+
+}
+function logout(){
+  sessionStorage.clear();
+  window.location = "login.html";
+}
+
+function maisInfoAcao(acao_id) {
+
+  sessionStorage.setItem("acao_id", acao_id);
+  window.location = "mais_info.html";
 
 }

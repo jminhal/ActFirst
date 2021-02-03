@@ -1,13 +1,13 @@
 async function login() {
 
-    let username = document.getElementById("username").value;
+    let email = document.getElementById("email").value;
 
-    if (username != "") { //Verificar se o input do username não está vazio
+    if (email != "") { //Verificar se o input do email não está vazio
 
         try {
             
             let utilizador = await $.ajax({
-                url: "/api/utilizadores?username="+username,
+                url: "/api/utilizadores?email="+email,
                 method: "get",
                 dataType: "json"
             });
@@ -25,6 +25,6 @@ async function login() {
 
     }
     else {
-        alert("Please enter your username!");
+        alert("Please enter your email!");
     }
 }

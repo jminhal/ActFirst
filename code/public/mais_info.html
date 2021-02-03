@@ -7,13 +7,15 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
   crossorigin=""/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
    crossorigin=""></script>
-
-
+   <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+     <!--Letter font-->
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="/stylesheets/mais_info.css">
-  <script src="javascripts/procurar_acoes.js"></script>
   <script src="javascripts/mais_info.js"></script>
 </head>
 <html>
@@ -21,27 +23,68 @@
   <header class= "header">
     <img id="actfirstLogo" src="icons/ActFirst.png" alt="ActFirst Logo">
       <section class="boxNavAvatar">
-        <div class="titulo">Mais informações</div>
-        <div class="divLogoAvatar">
-          <div id="userName"></div>
-          <img id="user" src="icons/user.png" alt="Avatar">
-        </div>
+        <div class="titulo">Procurar ações</div>
+        <section class="dropdown">
+          <div class="divLogoAvatar">
+            <div id="userName"></div>
+            <img id="user" src="icons/user.png" alt="Avatar">
+          </div>
+          <div class="dropdown-content" id="userDropBox">
+          </div>
+        </section>
       </section>
   </header> 
     <main>
-        <section class="infoAndMap">
-            <a href="procurar_acoes.html"><img src="icons/back_arrow_100px.png" alt="back_arrow" id="backArrow"></a>
-            <section class="maisInfo">
-                <section id="maisInfoBox">
-                </section>
+      <a href="procurar_acoes.html"><img src="icons/back_arrow_100px.png" alt="back_arrow" id="backArrow"></a>
+      <section class="infoAndMap">
+        <section id="maisInfoBox">
+          <section class="boxs">
+            <section class="checkBoxs">
+              <div>
+                <label>Nome da organização:</label>
+                <lable id="orgNome">
+              </div>
+              <div>
+                <label>Email da organização:</label>
+                <label id="email">
+              </div>
+              <div>
+                <label>Tipo de Ação:</label>
+                <label id="acaoTipo">
+              </div>
+              <div>
+                <label>Mais informações:</label>
+                <label type="text" id="maisInfo">
+              </div>
+              <div>
+                <label>Começa dia:</label>
+                <label type="date" id="dataInicio">
+              </div>
+              <div>
+                <label>Acaba dia:</label>
+                <label type="date" id="dataFim">
+              </div>
+              <div>
+                <label>Localizacao:</label>
+                <label type="text" id="localizacao">
+              </div>
+              <div>
+                <label>Pessoas Inscritas/Maximo:</label>
+                <label type="number" id="maxPessoas">
+              </div>
             </section>
-            <section class="mapaBox">
-              <section id="map"></section>
-            </section>
+          </section>
         </section>
-        <section class="botao">
-            <button type="button" class="botaoAbandonar" onclick="abandonarAcao()" >Abandonar</button> 
+        <section class="mapaBox">
+          <section id="map"></section>
         </section>
+       </section>
+
+     <section class="botao" id="btn">
+      <button class='btnAbandonar' onclick='abandonar("+acao.acao_id+")'>Abandonar</button>
+      <button class='btnApagarAcao' onclick='apagarAcao("+acao.acao_id+")'>Apagar Ação</button>
+       
+     </section>
     </main>
 </body>
 </html>

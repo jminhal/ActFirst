@@ -2,11 +2,13 @@
 async function signUp() {
 
     let username = document.getElementById("username").value;
+    let email = document.getElementById("email").value;
 
-    if (username != "") { //Verificar se o input do username não está vazio
+    if (username != "" && email!= "") { //Verificar se o input do username/email não está vazio
 
         let data = {
-            username: username
+            username: username,
+            email: email
         }
 
         try {
@@ -30,6 +32,6 @@ async function signUp() {
 
     }
     else {
-        alert("Please enter your username!");
+        alert("Please enter your username/email!");
     }
 }
