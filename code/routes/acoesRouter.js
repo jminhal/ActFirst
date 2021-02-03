@@ -8,6 +8,12 @@ router.get('/', async function(req, res, next) {
     let result = await acoesModel.getAcoesParticipar(obj);
     res.status(result.status).send(result.data);
 });
+//
+router.get('/:pos(\\d+)', async function(req, res, next) {//  \\d+ significa que só aceita inteiros
+    let obj = req.params.pos;
+    let result = await acoesModel.getAcao(obj);
+    res.status(result.status).send(result.data);
+});
 
 //insere a ação na tabela acaoUtilizador
 router.post('/addacao', async function(req, res, next) {

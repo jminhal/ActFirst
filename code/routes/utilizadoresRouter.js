@@ -17,8 +17,8 @@ router.get('/', async function(req, res, next) {
 });
 //vai verificar se o existe e vai criar 
 router.post('/', async function(req, res, next) {
-    let user = req.body;
-    let result = await utilizadoresModel.createUser(user);
+    let obj = req.body;
+    let result = await utilizadoresModel.createUser(obj);
     res.status(result.status).send(result.data);
 });
 //vai remover uma certa ação de um certo utilizador
