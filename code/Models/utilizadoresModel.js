@@ -23,14 +23,14 @@ module.exports.getUser = async function(id) {
 module.exports.checkLogin = async function(obj) {
     try {
 
-        let sql = "SELECT * FROM utilizador WHERE username = ?";
-        let utilizador = await pool.query(sql, [ obj.username ]);
+        let sql = "SELECT * FROM utilizador WHERE email = ?";
+        let utilizador = await pool.query(sql, [ obj.email ]);
 
         if (utilizador.length > 0) {
             return {status: 200, data: utilizador[0]};
         }
         else {
-            return {status: 404, data: {msg: "This username does not exist"}};
+            return {status: 404, data: {msg: "This email does not exist"}};
         }
 
     } catch (err) {
@@ -39,18 +39,18 @@ module.exports.checkLogin = async function(obj) {
     } 
 };
 // vai verificar se o utlizador existe e faze o registo dele
-module.exports.createUser = async function(user) {
+module.exports.createUser = async function(obj) {
     try {
 
-        let sql = "SELECT * FROM utilizador WHERE username = ?";
-        let utilizador = await pool.query(sql, [ user.username ]);
+        let sql = "SELECT * FROM utilizador WHERE username = ? AND email = ?";
+        let utilizador = await pool.query(sql, [ obj.username,obj.email ]);
 
         if (utilizador.length > 0) {
             return {status: 404, data: {msg: "username already exists!"}};
         }
         else {
-            sql = "INSERT INTO utilizador(username) VALUES (?)";
-            utilizador = await pool.query(sql, [ user.username ]);
+            sql = "INSERT INTO utilizador(username,email) VALUES (?,?)";
+            utilizador = await pool.query(sql, [ obj.username, obj.email ]);
             return {status: 200, data: utilizador};
         }
 

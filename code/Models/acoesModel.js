@@ -1,5 +1,28 @@
 var pool = require("./connection");
 
+//recebe a informação de umacerta ação
+module.exports.getAcao = async function(acao_id) {
+    try {
+
+        let sql = "SELECT  U.username, U.email, A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, TA.nome, A.extraInfo,DATE_FORMAT(A.diaAcaoInicio, '%d-%m-%y')AS 'diaAcaoInicio', DATE_FORMAT(A.diaAcaoInicio, '%H:%i')AS 'horaAcaoInicio', DATE_FORMAT(A.diaAcaoFim, '%d-%m-%y') AS 'diaAcaoFim', DATE_FORMAT(A.diaAcaoFim, '%H:%i') AS 'horaAcaoFim', COUNT(AU.acao_id) AS 'numeroInscritos', A.maximoPessoas "+
+        "FROM acao A, utilizador U, tipoacao TA, acaoUtilizador AU "+
+        "WHERE A.acao_id = ? AND A.organizacao_id= U.user_id AND AU.acao_id=A.acao_id AND TA.tipoAcao_id=A.tipoAcao"
+        
+        let result = await pool.query(sql, [acao_id]);
+        console.log(sql);
+        if (result.length > 0) {
+            return {status: 200, data: result[0]};
+        }
+        else {
+            return {status: 404, data: {msg: "Açao não encontrada!"}};
+        }
+
+    } catch (err) {
+        console.log(err);
+        return {status: 500, data: err};
+    } 
+}; 
+
 //acoes que o utilizador podera participar
 module.exports.getAcoesParticipar = async function(obj) {
     try {
@@ -84,7 +107,7 @@ module.exports.getAcoesFuturas = async function(obj) {
         let sql = "SELECT A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, A.extraInfo, U.email, A.diaAcaoInicio, A.diaAcaoFim, A.maximoPessoas, TA.nome "+
         "FROM acao A, acaoutilizador AU , utilizador U, tipoacao TA "+
         "WHERE AU.acao_id = A.acao_id AND U.user_id = A.organizacao_id AND TA.tipoAcao_id = A.tipoAcao AND A.diaAcaoInicio > DATE_ADD(CURDATE(), INTERVAL 7 DAY) GROUP BY A.acao_id";
-
+        console.log(sql);
 
         let result = await pool.query(sql, [obj.userID]);
         return {status: 200, data: result};
