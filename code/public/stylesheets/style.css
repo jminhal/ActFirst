@@ -4,7 +4,7 @@
   grid-template-columns: auto;
   text-align: center;
   color:#2B8B34;
-  background-color: #FBF1E5;
+  background-color: #FAF9FF;
 }
 
 .header {
@@ -68,7 +68,7 @@ nav a {padding-bottom: auto}
   font-size: 20px;
   text-align: justify;
   margin-top: 300px;
-  color: rgb(165, 116, 42);
+  color: rgb(82, 121, 194);
 }
 
 
@@ -148,4 +148,9 @@ html, body {
 body{
   display: flex;
   flex-direction: column;
+}
+
+#txtJA{
+  color: black;
+
 }

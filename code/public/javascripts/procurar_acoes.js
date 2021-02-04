@@ -41,7 +41,7 @@ function mapSetup(position){
   var latitude=position.coords.latitude;
   var longitude=position.coords.longitude;
   map = L.map('map').setView([latitude,longitude], 50);
-  markers = new L.LayerGroup().addTo(map);
+  markers = new L.LayerGroup().addTo(map);//coloca os markers
   L.tileLayer('https://api.mapbox.com/styles/v1/krscripter/ckigd79nk5gtv19qry86qdzsi/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoia3JzY3JpcHRlciIsImEiOiJja2lnZDNlbWQwbmJvMnVxazYwcWU5MDRlIn0.jqnlOPKhrK-r7-Il14uaYQ', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
@@ -49,7 +49,7 @@ function mapSetup(position){
       .bindPopup('A sua localização')
       .openPopup();
 }
-// vai buscar a  nossa localizacao
+// vai buscar a  nossa localizacao coordenadas
 function getLocalizacao(){
   
   if(navigator.geolocation){  
@@ -109,7 +109,6 @@ async function procurarAcoes(){
 
 
 function maisInfoAcao(acao_id) {
-  sessionStorage.setItem("procurarAcoes", true);
   sessionStorage.setItem("acao_id", acao_id);
   sessionStorage.setItem("pagina", "procurar_acoes.html");
   window.location = "mais_info.html";

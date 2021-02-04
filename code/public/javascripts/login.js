@@ -11,8 +11,7 @@ async function login() {
                 method: "get",
                 dataType: "json"
             });
-
-
+            
             sessionStorage.setItem("user", JSON.stringify(utilizador));
             window.location = "procurar_acoes.html";
 

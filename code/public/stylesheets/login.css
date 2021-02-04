@@ -63,3 +63,9 @@ body {
     display: grid;
     flex-direction: column;
 }
+
+
+#txtJA{
+    color: black;
+  
+  }

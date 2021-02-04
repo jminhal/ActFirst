@@ -38,7 +38,7 @@ module.exports.getAcoesParticipar = async function(obj) {
             }
             if(obj.data){
                 filterQueries+=" AND ? BETWEEN DATE(A.diaAcaoInicio) AND DATE(A.diaAcaoFim)";
-                filterValues.push(obj.data); //0-10 para ir buscar a data (sem a hora)
+                filterValues.push(obj.data);
             }
         }
         else{
@@ -105,7 +105,7 @@ module.exports.getAcoesFuturas = async function(obj) {
 
         let sql = "SELECT A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, A.extraInfo, U.email, DATE_FORMAT(A.diaAcaoInicio, '%d-%m-%y')AS 'diaAcaoInicio', DATE_FORMAT(A.diaAcaoInicio, '%H:%i')AS 'horaAcaoInicio', DATE_FORMAT(A.diaAcaoFim, '%d-%m-%y') AS 'diaAcaoFim', DATE_FORMAT(A.diaAcaoFim, '%H:%i') AS 'horaAcaoFim', TA.nome, COUNT(A.acao_id) AS 'numeroInscritos', A.maximoPessoas "+
         "FROM acao A, acaoutilizador AU , utilizador U, tipoacao TA "+
-        "WHERE AU.acao_id = A.acao_id AND U.user_id = A.organizacao_id AND TA.tipoAcao_id = A.tipoAcao AND A.diaAcaoInicio > DATE_ADD(CURDATE(), INTERVAL 7 DAY) GROUP BY A.acao_id";
+        "WHERE AU.acao_id = A.acao_id AND U.user_id = A.organizacao_id AND TA.tipoAcao_id = A.tipoAcao AND A.diaAcaoInicio > DATE_ADD(CURDATE(), INTERVAL 7 DAY) AND AU.user_id = ? GROUP BY A.acao_id";
         console.log(sql);
 
         let result = await pool.query(sql, [obj.userID]);
@@ -137,7 +137,9 @@ module.exports.getTipoAcoes = async function() {
         let sql = "SELECT * FROM tipoacao";
         let result = await pool.query(sql);
 
-        return {status: 200, data: result};
+        if (result.length > 0) {
+            return {status: 200, data: result};
+        } 
     } catch (err) {
         console.log(err);
         return {status: 500, data: err};

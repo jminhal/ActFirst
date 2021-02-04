@@ -58,6 +58,7 @@ async function suasAcoesFiltrar(){
 
   if(AP.checked){
 
+
     try {
         let acoes = await $.ajax({
           url: "/api/acoes/participadas?userID="+utilizadorID,
@@ -87,7 +88,7 @@ async function suasAcoesFiltrar(){
 
   }
   if(APP.checked){
-    sessionStorage.setItem("APP", true);
+
     try {
       let acoes = await $.ajax({
         url: "/api/acoes/participacao?userID="+utilizadorID,
@@ -129,7 +130,6 @@ async function suasAcoesFiltrar(){
 
   }
   if(AF.checked){
-    sessionStorage.setItem("AF", true);
     try {
       let acoes = await $.ajax({
         url: "/api/acoes/futuras?userID="+utilizadorID,

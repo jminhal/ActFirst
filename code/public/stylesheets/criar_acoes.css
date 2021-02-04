@@ -59,9 +59,7 @@ header{
     cursor: pointer;
     
   }
-  #userName{
-    width: 300px;
-  }
+
 
 .dropdown-content {
   display: none;

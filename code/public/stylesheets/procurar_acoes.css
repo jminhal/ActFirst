@@ -127,9 +127,7 @@ header{
   border: 2px solid #55BE5F;
   cursor: pointer;
 }
-#userName{
-  width: 300px;
-}
+
 .dropdown-content {
   display: none;
   position: absolute;

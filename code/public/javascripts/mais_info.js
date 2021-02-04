@@ -2,8 +2,7 @@ let user = JSON.parse(sessionStorage.getItem("user"));
 
 var utilizadorID= user.user_id;
 var organizacao= user.organizacao;
-var acao;
-var map;
+var acao,map;
 
 
 window.onload = async function () {
@@ -42,19 +41,11 @@ window.onload = async function () {
   document.getElementById("orgNome").innerHTML= acao.username;
   document.getElementById("acaoTipo").innerHTML= acao.nome;
 
-  if(organizacao==0){
-    console.log(sessionStorage.getItem("APP"));
-    console.log(sessionStorage.getItem("AF"));
-    console.log(sessionStorage.getItem("procurarAcoes"));
-    if(sessionStorage.getItem("procurarAcoes"!="null")){
-      document.getElementById("btn").innerHTML= "<button id='btnParticipar' onclick='participar("+acao.acao_id+")'>Participar</button>";
-    }
-    if(sessionStorage.getItem("AF" !="null" || sessionStorage.getItem("APP") !="null")){
-      document.getElementById("btn").innerHTML= "<button class='btnAbandonar' onclick='abandonar("+acao.acao_id+")'>Abandonar</button>";
-    }
-   else{
 
-   }
+
+  if(organizacao==0){
+
+
     let userDropBox= "<a href='procurar_acoes.html' class='selected'>Procurar ações</a>"+
     "<a href='suas_acoes.html' >As suas ações</a>"+
     "<a href='#' onclick='logout()'>Logout</a>";
@@ -62,9 +53,8 @@ window.onload = async function () {
 
   }
   if(organizacao==1){
-    if(acao.organizacao_id != utilizadorID){
-      document.getElementById("btn").innerHTML= "<button class='btnApagarAcao' onclick='apagarAcao("+acao.acao_id+")'>Apagar Ação</button>";
-    }
+
+
     let userDropBox= "<a href='procurar_acoes.html' class='selected'>Procurar ações</a>"+
     "<a href='suas_acoes.html' >As suas ações</a>"+
     "<a href='criar_acoes.html'>Criar Acão</a>"+
