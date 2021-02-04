@@ -57,7 +57,7 @@ async function suasAcoesFiltrar(){
   let AF=document.getElementById("AF");
 
   if(AP.checked){
-    
+
     try {
         let acoes = await $.ajax({
           url: "/api/acoes/participadas?userID="+utilizadorID,
@@ -67,17 +67,13 @@ async function suasAcoesFiltrar(){
   
         markers.clearLayers();
         for(let acao of acoes){
-          var markerIcon = L.icon({
-            iconUrl:'./icons/markerVerde.png',
-            iconSize:     [50, 50], // size of the icon
-            popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-         });
-         let marker=new L.marker(new L.LatLng(acao.lat, acao.lng), {icon: markerIcon}).addTo(markers);
+
+        let marker=new L.marker(new L.LatLng(acao.lat, acao.lng)).addTo(markers);
           marker.bindPopup("<section>"+
           "<p>Nome Organização:  "+acao.NomeOrganizacao+"</p>"+
           "<p>Tipo da ação:  "+acao.nome+"</p>"+
-          "<p>Dia ação:  "+acao.diaAcaoInicio.substring(0,10)+ " às " + acao.diaAcaoInicio.substring(11,16) +"</p>"+
-          "<p>Total de pessoas inscritas/Maximo:  "+acao.numeroInscritos+"  /  "+acao.maximoPessoas+"</p></section>"+
+          "<p>Dia ação:  "+acao.diaAcaoInicio+ " às " + acao.horaAcaoInicio +"</p>"+
+          "<p>Total de pessoas inscritas/Maximo:  "+acao.numeroInscritos+"/"+acao.maximoPessoas+"</p></section>"+
           "<button class='btnMaisInfo' onclick='maisInfoAcao("+acao.acao_id+")'>Mais informações</button>");
        }
   
@@ -91,7 +87,7 @@ async function suasAcoesFiltrar(){
 
   }
   if(APP.checked){
-
+    sessionStorage.setItem("APP", true);
     try {
       let acoes = await $.ajax({
         url: "/api/acoes/participacao?userID="+utilizadorID,
@@ -101,28 +97,24 @@ async function suasAcoesFiltrar(){
 
       markers.clearLayers();
       for(let acao of acoes){
-        var markerIcon = L.icon({
-          iconUrl:'./icons/markerVerde.png',
-          iconSize:     [50, 50], // size of the icon
-          popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-       });
+        
+        let marker=new L.marker(new L.LatLng(acao.lat, acao.lng)).addTo(markers);
+
         //Caso seja uma organização
         if(organizacao==1){
-          let marker=new L.marker(new L.LatLng(acao.lat, acao.lng), {icon: markerIcon}).addTo(markers);
           marker.bindPopup("<section>"+
           "<p>Nome Organização:  "+acao.NomeOrganizacao+"</p>"+
           "<p>Tipo da ação:  "+acao.nome+"</p>"+
-          "<p>Dia ação:  "+acao.diaAcaoInicio.substring(0,10)+ " às " + acao.diaAcaoInicio.substring(11,16) +"</p>"+
-          "<p>Total de pessoas inscritas/Maximo:  "+acao.numeroInscritos+"  /  "+acao.maximoPessoas+"</p></section>"+
+          "<p>Dia ação:  "+acao.diaAcaoInicio+ " às " + acao.horaAcaoInicio +"</p>"+
+          "<p>Total de pessoas inscritas/Maximo:  "+acao.numeroInscritos+"/"+acao.maximoPessoas+"</p></section>"+
           "<button class='btnApagarAcao' onclick='apagarAcao("+acao.acao_id+")'>Apagar Ação</button>  <button class='btnMaisInfo' onclick='maisInfoAcao("+acao.acao_id+")'>Mais informações</button>");  
         }
         else{
-          let marker=new L.marker(new L.LatLng(acao.lat, acao.lng), {icon: markerIcon}).addTo(markers);
           marker.bindPopup("<section>"+
           "<p>Nome Organização:  "+acao.NomeOrganizacao+"</p>"+
           "<p>Tipo da ação:  "+acao.nome+"</p>"+
-          "<p>Dia ação:  "+acao.diaAcaoInicio.substring(0,10)+ " às " + acao.diaAcaoInicio.substring(11,16) +"</p>"+
-          "<p>Total de pessoas inscritas/Maximo:  "+acao.pessoasInscritas+"  /  "+acao.maximoPessoas+"</p></section>"+
+          "<p>Dia ação:  "+acao.diaAcaoInicio+ " às " + acao.horaAcaoInicio +"</p>"+
+          "<p>Total de pessoas inscritas/Maximo:  "+acao.numeroInscritos+"/"+acao.maximoPessoas+"</p></section>"+
           "<button class='btnAbandonar' onclick='abandonar("+acao.acao_id+")'>Abandonar</button>  <button class='btnMaisInfo' onclick='maisInfoAcao("+acao.acao_id+")'>Mais informações</button>");
         }
       }
@@ -137,6 +129,7 @@ async function suasAcoesFiltrar(){
 
   }
   if(AF.checked){
+    sessionStorage.setItem("AF", true);
     try {
       let acoes = await $.ajax({
         url: "/api/acoes/futuras?userID="+utilizadorID,
@@ -146,28 +139,24 @@ async function suasAcoesFiltrar(){
 
       markers.clearLayers();
       for(let acao of acoes){
-        var markerIcon = L.icon({
-          iconUrl:'./icons/markerVerde.png',
-          iconSize:     [50, 50], // size of the icon
-          popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-       });
+       
+        let marker=new L.marker(new L.LatLng(acao.lat, acao.lng)).addTo(markers);
+
        //Caso seja uma organização
         if(organizacao==1){
-          let marker=new L.marker(new L.LatLng(acao.lat, acao.lng), {icon: markerIcon}).addTo(markers);
           marker.bindPopup("<section>"+
           "<p>Nome Organização:  "+acao.NomeOrganizacao+"</p>"+
           "<p>Tipo da ação:  "+acao.nome+"</p>"+
-          "<p>Dia ação:  "+acao.diaAcaoInicio.substring(0,10)+ " às " + acao.diaAcaoInicio.substring(11,16) +"</p>"+
-          "<p>Total de pessoas inscritas/Maximo:  "+acao.numeroInscritos+"  /  "+acao.maximoPessoas+"</p></section>"+
+          "<p>Dia ação:  "+acao.diaAcaoInicio+ " às " + acao.horaAcaoInicio +"</p>"+
+          "<p>Total de pessoas inscritas/Maximo:  "+acao.numeroInscritos+"/"+acao.maximoPessoas+"</p></section>"+
           "<button class='btnApagarAcao' onclick='apagarAcao("+acao.acao_id+")'>Apagar Ação</button>  <button class='btnMaisInfo' onclick='maisInfoAcao("+acao.acao_id+")'>Mais informações</button>");  
         }
         else{
-          let marker=new L.marker(new L.LatLng(acao.lat, acao.lng), {icon: markerIcon}).addTo(markers);
           marker.bindPopup("<section>"+
           "<p>Nome Organização:  "+acao.NomeOrganizacao+"</p>"+
           "<p>Tipo da ação:  "+acao.nome+"</p>"+
-          "<p>Dia ação:  "+acao.diaAcaoInicio.substring(0,10)+ " às " + acao.diaAcaoInicio.substring(11,16) +"</p>"+
-          "<p>Total de pessoas inscritas/Maximo:  "+acao.numeroInscritos+"  /  "+acao.maximoPessoas+"</p></section>"+
+          "<p>Dia ação:  "+acao.diaAcaoInicio+ " às " + acao.horaAcaoInicio +"</p>"+
+          "<p>Total de pessoas inscritas/Maximo:  "+acao.numeroInscritos+"/"+acao.maximoPessoas+"</p></section>"+
           "<button class='btnAbandonar' onclick='abandonar("+acao.acao_id+")'>Abandonar</button>  <button class='btnMaisInfo' onclick='maisInfoAcao("+acao.acao_id+")'>Mais informações</button>");
         }
       }
@@ -224,7 +213,7 @@ function logout(){
 }
 
 function maisInfoAcao(acao_id) {
-
+  sessionStorage.setItem("pagina", "suas_acoes.html");
   sessionStorage.setItem("acao_id", acao_id);
   window.location = "mais_info.html";
 

@@ -7,6 +7,10 @@ var map;
 
 
 window.onload = async function () {
+
+
+  document.getElementById("backArrow").href = sessionStorage.getItem("pagina");
+
   try {
     let user = await $.ajax({
       url: "/api/utilizadores/"+utilizadorID,
@@ -14,24 +18,6 @@ window.onload = async function () {
       dataType: "json"
     });
     document.getElementById("userName").innerHTML=user.username;
-    if(organizacao==0){
-      document.getElementById("btn").innerHTML=`<button class='btnAbandonar' onclick='abandonar("+acao.acao_id+")'>Abandonar</button>`;
-      let userDropBox= "<a href='procurar_acoes.html' class='selected'>Procurar ações</a>"+
-      "<a href='suas_acoes.html' >As suas ações</a>"+
-      "<a href='#' onclick='logout()'>Logout</a>";
-      document.getElementById("userDropBox").innerHTML = userDropBox;
-    }
-    if(organizacao==1){
-      document.getElementById("btn").innerHTML= `<button class='btnApagarAcao' onclick='apagarAcao("+acao.acao_id+")'>Apagar Ação</button>`;
-      let userDropBox= "<a href='procurar_acoes.html' class='selected'>Procurar ações</a>"+
-      "<a href='suas_acoes.html' >As suas ações</a>"+
-      "<a href='criar_acoes.html'>Criar Acão</a>"+
-      "<a href='#' onclick='logout()'>Logout</a>";
-      document.getElementById("userDropBox").innerHTML = userDropBox;
-
-
-    }
-
   } 
   catch(err) {
     console.log(err);
@@ -55,6 +41,37 @@ window.onload = async function () {
   document.getElementById("email").innerHTML= acao.email;
   document.getElementById("orgNome").innerHTML= acao.username;
   document.getElementById("acaoTipo").innerHTML= acao.nome;
+
+  if(organizacao==0){
+    console.log(sessionStorage.getItem("APP"));
+    console.log(sessionStorage.getItem("AF"));
+    console.log(sessionStorage.getItem("procurarAcoes"));
+    if(sessionStorage.getItem("procurarAcoes"!="null")){
+      document.getElementById("btn").innerHTML= "<button id='btnParticipar' onclick='participar("+acao.acao_id+")'>Participar</button>";
+    }
+    if(sessionStorage.getItem("AF" !="null" || sessionStorage.getItem("APP") !="null")){
+      document.getElementById("btn").innerHTML= "<button class='btnAbandonar' onclick='abandonar("+acao.acao_id+")'>Abandonar</button>";
+    }
+   else{
+
+   }
+    let userDropBox= "<a href='procurar_acoes.html' class='selected'>Procurar ações</a>"+
+    "<a href='suas_acoes.html' >As suas ações</a>"+
+    "<a href='#' onclick='logout()'>Logout</a>";
+    document.getElementById("userDropBox").innerHTML = userDropBox;
+
+  }
+  if(organizacao==1){
+    if(acao.organizacao_id != utilizadorID){
+      document.getElementById("btn").innerHTML= "<button class='btnApagarAcao' onclick='apagarAcao("+acao.acao_id+")'>Apagar Ação</button>";
+    }
+    let userDropBox= "<a href='procurar_acoes.html' class='selected'>Procurar ações</a>"+
+    "<a href='suas_acoes.html' >As suas ações</a>"+
+    "<a href='criar_acoes.html'>Criar Acão</a>"+
+    "<a href='#' onclick='logout()'>Logout</a>";
+    document.getElementById("userDropBox").innerHTML = userDropBox;
+  }
+
 }
 
 function mapSetup(position) {
@@ -102,7 +119,48 @@ function getRoute(lat, lng, acao_lat, acao_lng) {
       waypointMode: 'snap',
       createMarker: function() {} //Faz remover os markers criados pelo Routing
   }).addTo(map);
+}
 
+async function apagarAcao(acao_id) {
 
-    //document.getElementsByClassName("leaflet-control-container")[1].style.display = "None";
+  try {
+    let acao = await $.ajax({
+        url: "/api/acoes?acao_id="+acao_id+"&organizacao_id="+utilizadorID,
+        method: "delete",
+        dataType: "json"
+    });
+
+    alert("Ação apagada com sucesso!");
+    window.location = "suas_acoes.html";
+  
+  } catch(err) {
+      console.log(err);
+  }
+
+}
+
+async function participar(id) {
+
+  let data = {
+    acao_id: id,
+    user_id: utilizadorID
+  }
+
+try {
+
+    let result = await $.ajax({
+        url: "/api/acoes/addacao",
+        method: "post",
+        data: JSON.stringify(data),
+        contentType: "application/json",
+        dataType: "json"
+    });
+
+    alert("Nova ação adicionada, com sucesso!");
+    window.location = "procurar_acoes.html";
+
+} catch(err) {
+    console.log(err);
+}
+
 }

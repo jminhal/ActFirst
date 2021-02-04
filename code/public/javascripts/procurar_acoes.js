@@ -1,7 +1,6 @@
 var map,markers;
 
 let user = JSON.parse(sessionStorage.getItem("user"));
-console.log(user)
 var utilizadorID= user.user_id;
 var organizacao= user.organizacao;
 
@@ -72,21 +71,28 @@ async function procurarAcoes(){
       });
 
       markers.clearLayers();
-
+      
       //vai buscar as acoes da lista e mete acoes no mapa
       for(let acao of acoes){
-        var markerIcon = L.icon({
-          iconUrl:'./icons/markerVerde.png',
-          iconSize:     [50, 50], // size of the icon
-          popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-       });
-        let marker=new L.marker(new L.LatLng(acao.lat, acao.lng), {icon: markerIcon}).addTo(markers);
-        marker.bindPopup("<section>"+
-        "<p>Nome Organização:  "+acao.NomeOrganizacao+"</p>"+
-        "<p>Tipo da ação:  "+acao.nome+"</p>"+
-        "<p>Dia ação:  "+acao.diaAcaoInicio.substring(0,10)+ " às " + acao.diaAcaoInicio.substring(11,16) +"</p>"+
-        "<p>Total de pessoas inscritas/Maximo:  "+acao.numeroInscritos+"  /  "+acao.maximoPessoas+"</p></section>"+
-        "<button id='btnParticipar' onclick='participar("+acao.acao_id+")'>Participar</button>  <button id='btnMaisInfo' onclick='maisInfoAcao()'>Mais informações</button>");
+
+        let marker=new L.marker(new L.LatLng(acao.lat, acao.lng)).addTo(markers);
+
+        if (organizacao==1 && acao.organizacao_id != utilizadorID) {
+          marker.bindPopup("<section>"+
+          "<p>Nome Organização:  "+acao.NomeOrganizacao+"</p>"+
+          "<p>Tipo da ação:  "+acao.nome+"</p>"+
+          "<p>Dia ação:  "+acao.diaAcaoInicio+ " às " + acao.horaAcaoInicio +"</p>"+
+          "<p>Total de pessoas inscritas/Maximo:  "+acao.numeroInscritos+"  /  "+acao.maximoPessoas+"</p></section>"+
+          "<button id='btnMaisInfo' onclick='maisInfoAcao("+acao.acao_id+")'>Mais informações</button>");
+        }
+        else {
+          marker.bindPopup("<section>"+
+          "<p>Nome Organização:  "+acao.NomeOrganizacao+"</p>"+
+          "<p>Tipo da ação:  "+acao.nome+"</p>"+
+          "<p>Dia ação:  "+acao.diaAcaoInicio+ " às " + acao.horaAcaoInicio +"</p>"+
+          "<p>Total de pessoas inscritas/Maximo:  "+acao.numeroInscritos+"  /  "+acao.maximoPessoas+"</p></section>"+
+          "<button id='btnParticipar' onclick='participar("+acao.acao_id+")'>Participar</button>  <button id='btnMaisInfo' onclick='maisInfoAcao("+acao.acao_id+")'>Mais informações</button>");
+        }
       }
 
       if (acoes.length == 0) {
@@ -99,9 +105,17 @@ async function procurarAcoes(){
   }
 }
 
-function maisInfoAcao(){
+
+
+
+function maisInfoAcao(acao_id) {
+  sessionStorage.setItem("procurarAcoes", true);
+  sessionStorage.setItem("acao_id", acao_id);
+  sessionStorage.setItem("pagina", "procurar_acoes.html");
   window.location = "mais_info.html";
+
 }
+
 function logout(){
   sessionStorage.clear();
   window.location = "login.html";

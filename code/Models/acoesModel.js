@@ -4,7 +4,7 @@ var pool = require("./connection");
 module.exports.getAcao = async function(acao_id) {
     try {
 
-        let sql = "SELECT  U.username, U.email, A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, TA.nome, A.extraInfo,DATE_FORMAT(A.diaAcaoInicio, '%d-%m-%y')AS 'diaAcaoInicio', DATE_FORMAT(A.diaAcaoInicio, '%H:%i')AS 'horaAcaoInicio', DATE_FORMAT(A.diaAcaoFim, '%d-%m-%y') AS 'diaAcaoFim', DATE_FORMAT(A.diaAcaoFim, '%H:%i') AS 'horaAcaoFim', COUNT(AU.acao_id) AS 'numeroInscritos', A.maximoPessoas "+
+        let sql = "SELECT  U.username, U.email, A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, TA.nome, A.extraInfo,DATE_FORMAT(A.diaAcaoInicio, '%d-%m-%y')AS 'diaAcaoInicio', DATE_FORMAT(A.diaAcaoInicio, '%H:%i')AS 'horaAcaoInicio', DATE_FORMAT(A.diaAcaoFim, '%d-%m-%y') AS 'diaAcaoFim', DATE_FORMAT(A.diaAcaoFim, '%H:%i') AS 'horaAcaoFim', COUNT(A.acao_id) AS 'numeroInscritos', A.maximoPessoas "+
         "FROM acao A, utilizador U, tipoacao TA, acaoUtilizador AU "+
         "WHERE A.acao_id = ? AND A.organizacao_id= U.user_id AND AU.acao_id=A.acao_id AND TA.tipoAcao_id=A.tipoAcao"
         
@@ -38,7 +38,7 @@ module.exports.getAcoesParticipar = async function(obj) {
             }
             if(obj.data){
                 filterQueries+=" AND ? BETWEEN DATE(A.diaAcaoInicio) AND DATE(A.diaAcaoFim)";
-                filterValues.push(obj.data.substring(0,10)); //0-10 para ir buscar a data (sem a hora)
+                filterValues.push(obj.data); //0-10 para ir buscar a data (sem a hora)
             }
         }
         else{
@@ -46,16 +46,16 @@ module.exports.getAcoesParticipar = async function(obj) {
         }
         
 
-        let sql = "SELECT A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, TA.nome, A.extraInfo, U.email, A.diaAcaoInicio, A.diaAcaoFim, A.maximoPessoas "+
+        let sql = "SELECT A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, TA.nome, A.extraInfo, U.email, DATE_FORMAT(A.diaAcaoInicio, '%d-%m-%y') AS 'diaAcaoInicio', DATE_FORMAT(A.diaAcaoInicio, '%H:%i') AS 'horaAcaoInicio', DATE_FORMAT(A.diaAcaoFim, '%d-%m-%y') AS 'diaAcaoFim', DATE_FORMAT(A.diaAcaoFim, '%H:%i') AS 'horaAcaoFim', A.maximoPessoas, COUNT(A.acao_id) AS 'numeroInscritos' "+
         "FROM acao A, tipoacao TA, utilizador U, acaoutilizador AU "+
         "WHERE "+
         "NOT EXISTS "+
         "( " +
         "SELECT * "+
         "FROM acaoutilizador AU "+
-        "WHERE AU.acao_id = A.acao_id AND AU.user_id = ?"+
+        "WHERE AU.acao_id = A.acao_id AND AU.user_id = ? "+
         ") "+
-        "AND TA.tipoAcao_id=A.tipoAcao AND A.organizacao_id = U.user_id AND AU.acao_id = A.acao_id"+filterQueries+
+        "AND TA.tipoAcao_id=A.tipoAcao AND A.organizacao_id = U.user_id AND AU.acao_id = A.acao_id "+filterQueries+
         " GROUP BY A.acao_id"
 
         let participadas = await pool.query(sql,filterValues);
@@ -71,10 +71,9 @@ module.exports.getAcoesParticipar = async function(obj) {
 module.exports.getAcoesParticipadas = async function(obj) {
     try {
 
-        let sql = "SELECT A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, A.extraInfo, U.email, A.diaAcaoInicio, A.diaAcaoFim, A.maximoPessoas, TA.nome "+
+        let sql = "SELECT A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, A.extraInfo, U.email, DATE_FORMAT(A.diaAcaoInicio, '%d-%m-%y') AS 'diaAcaoInicio', DATE_FORMAT(A.diaAcaoInicio, '%H:%i') AS 'horaAcaoInicio', DATE_FORMAT(A.diaAcaoFim, '%d-%m-%y') AS 'diaAcaoFim', DATE_FORMAT(A.diaAcaoFim, '%H:%i') AS 'horaAcaoFim', TA.nome, COUNT(A.acao_id) AS 'numeroInscritos', A.maximoPessoas "+
         "FROM acao A, acaoutilizador AU , utilizador U, tipoacao TA "+
-        "WHERE  A.acao_id=AU.acao_id AND U.user_id=A.organizacao_id AND TA.tipoAcao_id=A.tipoAcao AND CURDATE() > DATE(A.diaAcaoFim) AND AU.user_id = ?";
-
+        "WHERE  A.acao_id=AU.acao_id AND U.user_id=A.organizacao_id AND TA.tipoAcao_id=A.tipoAcao AND CURDATE() > DATE(A.diaAcaoFim) AND AU.user_id = ? GROUP BY A.acao_id";
         let result = await pool.query(sql, [obj.userID]);
         return {status: 200, data: result};
     } catch (err) {
@@ -87,7 +86,7 @@ module.exports.getAcoesParticipadas = async function(obj) {
 module.exports.getAcoesParticipacaoPresente = async function(obj) {
     try {
 
-        let sql = "SELECT A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, A.extraInfo, U.email, A.diaAcaoInicio, A.diaAcaoFim, A.maximoPessoas, TA.nome "+
+        let sql = "SELECT A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, A.extraInfo, U.email, DATE_FORMAT(A.diaAcaoInicio, '%d-%m-%y')AS 'diaAcaoInicio', DATE_FORMAT(A.diaAcaoInicio, '%H:%i')AS 'horaAcaoInicio', DATE_FORMAT(A.diaAcaoFim, '%d-%m-%y') AS 'diaAcaoFim', DATE_FORMAT(A.diaAcaoFim, '%H:%i') AS 'horaAcaoFim', TA.nome, COUNT(A.acao_id) AS 'numeroInscritos', A.maximoPessoas "+
         "FROM acao A, acaoutilizador AU , utilizador U, tipoacao TA "+
         "WHERE AU.acao_id = A.acao_id AND U.user_id = A.organizacao_id AND TA.tipoAcao_id = A.tipoAcao AND (CURDATE() BETWEEN DATE(A.diaAcaoInicio) AND DATE(A.diaAcaoFim) OR A.diaAcaoInicio BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 7 DAY)) AND AU.user_id = ? GROUP BY A.acao_id";
 
@@ -104,7 +103,7 @@ module.exports.getAcoesParticipacaoPresente = async function(obj) {
 module.exports.getAcoesFuturas = async function(obj) {
     try {
 
-        let sql = "SELECT A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, A.extraInfo, U.email, A.diaAcaoInicio, A.diaAcaoFim, A.maximoPessoas, TA.nome "+
+        let sql = "SELECT A.acao_id, U.username AS 'NomeOrganizacao', A.organizacao_id, A.localizacao, A.lat, A.lng, A.tipoAcao, A.extraInfo, U.email, DATE_FORMAT(A.diaAcaoInicio, '%d-%m-%y')AS 'diaAcaoInicio', DATE_FORMAT(A.diaAcaoInicio, '%H:%i')AS 'horaAcaoInicio', DATE_FORMAT(A.diaAcaoFim, '%d-%m-%y') AS 'diaAcaoFim', DATE_FORMAT(A.diaAcaoFim, '%H:%i') AS 'horaAcaoFim', TA.nome, COUNT(A.acao_id) AS 'numeroInscritos', A.maximoPessoas "+
         "FROM acao A, acaoutilizador AU , utilizador U, tipoacao TA "+
         "WHERE AU.acao_id = A.acao_id AND U.user_id = A.organizacao_id AND TA.tipoAcao_id = A.tipoAcao AND A.diaAcaoInicio > DATE_ADD(CURDATE(), INTERVAL 7 DAY) GROUP BY A.acao_id";
         console.log(sql);
