@@ -67,6 +67,7 @@ async function suasAcoesFiltrar(){
         });
   
         markers.clearLayers();
+        loadListaAcoes(acoes);
         for(let acao of acoes){
 
         let marker=new L.marker(new L.LatLng(acao.lat, acao.lng)).addTo(markers);
@@ -76,11 +77,9 @@ async function suasAcoesFiltrar(){
           "<p>Dia ação:  "+acao.diaAcaoInicio+ " às " + acao.horaAcaoInicio +"</p>"+
           "<p>Total de pessoas inscritas/Maximo:  "+acao.numeroInscritos+"/"+acao.maximoPessoas+"</p></section>"+
           "<button class='btnMaisInfo' onclick='maisInfoAcao("+acao.acao_id+")'>Mais informações</button>");
+        
        }
-  
-        if (acoes.length == 0) {
-          alert("Não participou em nenhuma ação!");
-        }
+
       } 
       catch(err) {
         console.log(err);
@@ -97,6 +96,7 @@ async function suasAcoesFiltrar(){
       });
 
       markers.clearLayers();
+      loadListaAcoes(acoes);
       for(let acao of acoes){
         
         let marker=new L.marker(new L.LatLng(acao.lat, acao.lng)).addTo(markers);
@@ -138,6 +138,7 @@ async function suasAcoesFiltrar(){
       });
 
       markers.clearLayers();
+      loadListaAcoes(acoes);
       for(let acao of acoes){
        
         let marker=new L.marker(new L.LatLng(acao.lat, acao.lng)).addTo(markers);
@@ -216,5 +217,30 @@ function maisInfoAcao(acao_id) {
   sessionStorage.setItem("pagina", "suas_acoes.html");
   sessionStorage.setItem("acao_id", acao_id);
   window.location = "mais_info.html";
+
+}
+
+function centerAcaoMap(lat, lng) {
+  map.panTo(new L.LatLng(lat, lng));
+}
+
+function loadListaAcoes(acoes) {
+
+  let lista = document.getElementById("listaAcoes");
+
+  let html = "";
+  for (let acao of acoes) {
+    html += "<div class='acaoLista' onclick='centerAcaoMap("+acao.lat+","+acao.lng+")'>"+
+        "<p>Nome Organização:  "+acao.NomeOrganizacao+"</p>"+
+        "<p>Tipo da ação:  "+acao.nome+"</p>" + "</div><hr>";
+  }
+
+  if (acoes.length > 0) {
+    lista.style.display = "block";
+    lista.innerHTML = html;
+  }
+  else {
+    lista.style.display = "none";
+  }
 
 }

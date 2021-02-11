@@ -2,9 +2,9 @@ const util = require('util')
 const mysql = require('mysql')
 const pool = mysql.createPool({
   connectionLimit: 10,
-  host: 'db4free.net',
-  user: 'actfirst',
-  password: 'actfirst2020',
+  host: 'localhost',
+  user: 'root',
+  password: '',
   database: 'actfirst'
 })
 
