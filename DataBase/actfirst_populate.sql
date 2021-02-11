@@ -77,47 +77,42 @@ insert into tipoAcao (nome) values('Babysitting');
 
 
 
-
 insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,diaAcaoInicio,diaAcaoFim,maximoPessoas) 
-			values(4,38.7237927,-9.1421934,'Lisboa',1,'Levar sacos extra','2020-12-12 15:00:00','2020-12-30 16:30:00',20);
+			values(4,41.1039051,-8.5491498,'Lisboa',1,'Levar sacos extra','2020-12-12 15:00:00','2020-12-30 16:30:00',20);
 insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,diaAcaoInicio,diaAcaoFim,maximoPessoas) 
-			values(12,38.728244,-9.139271,'Lisboa',2,'Levar roupa confortavel','2020-12-15 13:00:00','2020-12-30 15:00:00',30);
+			values(12,38.7427002,-9.139859,'Lisboa',2,'Levar roupa confortavel','2020-12-15 13:00:00','2020-12-30 15:00:00',30);
 insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,diaAcaoInicio,diaAcaoFim,maximoPessoas) 
-			values(11,38.7183333,-9.1507342,'Lisboa',3,'Levar roupa confortavel e luvas de jardinagem','2020-12-30 14:00:00','2021-01-15 19:00:00',80);
+			values(11,38.762033,-9.0928945,'Porto',3,'Levar roupa confortavel e luvas de jardinagem','2020-12-30 14:00:00','2021-01-15 19:00:00',80);
 insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,diaAcaoInicio,diaAcaoFim,maximoPessoas)  
-			values(1,38.7183333,-9.1507342,'Lisboa',21,'Levar tenis e roupa confortavel','2020-12-10 10:00:00','2021-01-15 19:00:00',100);
+			values(1,38.71605755,-9.127255125577776,'Lisboa',21,'Levar tenis e roupa confortavel','2020-12-10 10:00:00','2021-01-15 19:00:00',100);
 insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,diaAcaoInicio,diaAcaoFim,maximoPessoas)  
-			values(34,38.7183333,-9.1507342,'Lisboa',13,'Levar carro caso seja preciso','2021-02-01 14:00:00','2021-02-15 19:00:00',20);
+			values(34,38.734231,-9.1519587,'Lisboa',13,'Levar carro caso seja preciso','2021-02-01 14:00:00','2021-02-15 19:00:00',20);
 insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,diaAcaoInicio,diaAcaoFim,maximoPessoas)  
-			values(31,38.7183333,-9.1507342,'Lisboa',4,'Levar jogos de tabuleiro','2021-01-30 14:00:00','2021-03-15 19:00:00',60);  
+			values(33,38.711507,-9.177672,'Lisboa',5,'Levar materiais de estudo','2020-12-30 14:00:00','2021-02-25 19:00:00',10);
 insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,diaAcaoInicio,diaAcaoFim,maximoPessoas)  
-			values(33,38.7183333,-9.1507342,'Lisboa',5,'Levar materiais de estudo','2020-12-30 14:00:00','2021-02-25 19:00:00',10);
+			values(30,38.7134446,-9.1452197,'Lisboa',6,'Levar roupa adequada e confortavel','2020-12-30 14:00:00','2021-04-15 19:00:00',80);
 insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,diaAcaoInicio,diaAcaoFim,maximoPessoas)  
-			values(30,38.7183333,-9.1507342,'Lisboa',6,'Levar roupa adequada e confortavel','2020-12-30 14:00:00','2021-04-15 19:00:00',80);
+			values(5,38.7640731,-9.1137204,'Lisboa',12,'Levar jogos para criancas','2021-12-30 14:00:00','2021-12-15 19:00:00',10);
 insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,diaAcaoInicio,diaAcaoFim,maximoPessoas)  
-			values(5,38.7183333,-9.1507342,'Lisboa',12,'Levar jogos para criancas','2021-12-30 14:00:00','2021-12-15 19:00:00',10);
+			values(9,38.7389175,-9.1310114,'Lisboa',32,'Levar carro','2021-1-30 14:00:00','2021-03-30 19:00:00',20);
 insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,diaAcaoInicio,diaAcaoFim,maximoPessoas)  
-			values(9,38.7183333,-9.1507342,'Lisboa',32,'Levar carro','2021-1-30 14:00:00','2021-03-30 19:00:00',20);
+			values(14,38.7430653,-9.1074735,'Lisboa',24,'Levar material escolar','2020-09-10 14:00:00','2021-06-15 19:00:00',20);
 insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,diaAcaoInicio,diaAcaoFim,maximoPessoas)  
-			values(14,38.7183333,-9.1507342,'Lisboa',24,'Levar material escolar','2020-09-10 14:00:00','2021-06-15 19:00:00',20);
+			values(15,38.7367616,-9.1561616,'Lisboa',34,'Levar material escolar','2020-12-30 14:00:00','2021-03-15 19:00:00',30);
 insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,diaAcaoInicio,diaAcaoFim,maximoPessoas)  
-			values(15,38.7183333,-9.1507342,'Lisboa',34,'Levar material escolar','2020-12-30 14:00:00','2021-03-15 19:00:00',30);
+			values(29,38.7420764,-9.1711288,'Lisboa',19,'Saber primeiros socorros','2020-11-30 14:00:00','2021-11-15 19:00:00',80);
 insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,diaAcaoInicio,diaAcaoFim,maximoPessoas)  
-			values(29,38.7183333,-9.1507342,'Lisboa',19,'Saber primeiros socorros','2020-11-30 14:00:00','2021-11-15 19:00:00',80);
+			values(28,38.698262,-9.1901005,'Lisboa',8,'Ter curso de medicina','2020-12-30 14:00:00','2021-01-15 19:00:00',50);
 insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,diaAcaoInicio,diaAcaoFim,maximoPessoas)  
-			values(28,38.7183333,-9.1507342,'Lisboa',8,'Ter curso de medicina','2020-12-30 14:00:00','2021-01-15 19:00:00',50);
+			values(25,38.7636507,-9.1759433,'Lisboa',6,'Levar roupa adequada e confortavel','2021-08-30 14:00:00','2021-09-15 19:00:00',50);
 insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,diaAcaoInicio,diaAcaoFim,maximoPessoas)  
-			values(25,38.7183333,-9.1507342,'Lisboa',6,'Levar roupa adequada e confortavel','2021-08-30 14:00:00','2021-09-15 19:00:00',50);
+			values(17,38.7441652,-9.1666563,'Lisboa',21,'Levar tenis e roupa confortavel','2021-01-02 21:00:00','2021-12-31 23:00:00',80);
 insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,diaAcaoInicio,diaAcaoFim,maximoPessoas)  
-			values(26,38.7183333,-9.1507342,'Lisboa',27,'Levar kit primeiros socorros','2021-01-30 14:00:00','2021-04-15 19:00:00',40);
+			values(18,38.730862, -9.141123,'Lisboa',27,'Levar kit primeiros socorros','2020-12-30 14:00:00','2021-01-15 19:00:00',80);
 insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,diaAcaoInicio,diaAcaoFim,maximoPessoas)  
-			values(17,38.7183333,-9.1507342,'Lisboa',21,'Levar tenis e roupa confortavel','2021-01-02 21:00:00','2021-12-31 23:00:00',80);
+			values(20,38.7581058,-9.1829639,'Lisboa',15,'Levar roupa confortavel e que se possa sujar','2021-01-30 14:00:00','2021-02-15 19:00:00',80);
 insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,diaAcaoInicio,diaAcaoFim,maximoPessoas)  
-			values(18,38.7183333,-9.1507342,'Lisboa',27,'Levar kit primeiros socorros','2020-12-30 14:00:00','2021-01-15 19:00:00',80);
-insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,diaAcaoInicio,diaAcaoFim,maximoPessoas)  
-			values(20,38.7183333,-9.1507342,'Lisboa',15,'Levar roupa confortavel e que se possa sujar','2021-01-30 14:00:00','2021-02-15 19:00:00',80);
-insert into acao(organizacao_id,lat,lng,localizacao,tipoAcao,extraInfo,diaAcaoInicio,diaAcaoFim,maximoPessoas)  
-			values(24,38.7183333,-9.1507342,'Lisboa',3,'Levar roupa adequada e luvas de jardinagem','2020-12-30 14:00:00','2021-01-15 19:00:00',80);
+			values(24,38.7500806,-9.1252561,'Lisboa',3,'Levar roupa adequada e luvas de jardinagem','2020-12-30 14:00:00','2021-01-15 19:00:00',80);
  
  
 insert into acaoUtilizador (acao_id,user_id) values(1,3);
@@ -139,8 +134,7 @@ insert into acaoUtilizador (acao_id,user_id) values(12,8);
 insert into acaoUtilizador (acao_id,user_id) values(14,8);
 insert into acaoUtilizador (acao_id,user_id) values(15,16);
 insert into acaoUtilizador (acao_id,user_id) values(17,8);
-insert into acaoUtilizador (acao_id,user_id) values(19,8);
-insert into acaoUtilizador (acao_id,user_id) values(20,6);
+
 
 
 
